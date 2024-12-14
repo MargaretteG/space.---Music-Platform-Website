@@ -1,0 +1,137 @@
+.merch-item-head{
+    height: 100px;
+    border: #e42af9 1px solid;
+    width: 100%;
+}
+.merch-img{
+    height: 500px;
+    width: 500px;
+}
+.item-title-info h3{
+    color: #747373;
+    
+}
+.sizes-btn{
+    cursor: pointer;
+    border: white 1px solid;
+    width: fit-content;
+}
+.sizes-btn:hover{
+    border: #e42af9 1px solid;
+    color: #e42af9 !important;
+}
+.sizes-btn.active{
+    border: #e42af9 1px solid;
+    background-color: #e42af9;
+    color: white !important;
+}
+.quantity-control {
+    border: 1px solid white;
+    display: inline-flex;
+    align-items: center;
+    width: fit-content;
+}
+
+.quantity-btn {
+    cursor: pointer;
+    border: none;
+    background-color: white;
+    color: black;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+}
+
+.quantity-btn:hover {
+    background-color: #c22bd9;
+}
+
+.quantity-number {
+    color: #e42af9;
+    font-weight: bold;
+    font-size: 1rem;
+    text-align: center;
+    min-width: 40px;
+}
+.btn-shop{
+
+    width: fit-content;
+    border: 2px solid #c22bd9;
+    border-radius: 30px;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+.btn-shop:hover{
+    color: white;
+    border-color: #c22bd9;
+    background-color: #c22bd9;
+    transform: scale(1.04); 
+}
+
+/* SHOPPING-CART PAGE */
+/* General table styling */
+.table-cart {
+    color: white;
+    width: 100%;
+    background-color: black; 
+    border: 1px solid #c22bd9; 
+  }
+  
+  .table-cart thead {
+    align-items: center;    
+    background-color: black; 
+    color: white; 
+  }
+  
+  .table-cart th {
+    margin-top: 50%;
+    color: rgb(184, 175, 175);
+    font-size: larger;
+    background-color: black;
+    padding: 20px;
+    text-align: start;
+    
+    border-bottom: 1px solid #c22bd9; /* Bottom border for header cells */
+  }
+  
+  /* Body styling */
+  .table-cart tbody tr {
+    border-bottom: 1px solid #c22bd9;
+  }
+  .table-cart img {
+    max-height: 200px; /* Adjust this value to fit the row height */
+    width: auto; /* Maintain aspect ratio */
+    display: block;
+    float: left;
+  }
+  
+  
+  .table-cart td {
+    vertical-align: middle;
+    text-align: start;
+    color: white;
+    font-size: 1.5rem;
+    background-color: black;
+    border-bottom: 1px solid #c22bd9;
+    min-height: 150px;
+  }
+  
+  /* Hover effect for rows */
+  .table-cart tbody tr:hover {
+    background-color: #f1f1f1; /* Slightly darker background on hover */
+  }
+  
+  /* Specific column styling */
+  .table-cart tbody td:nth-child(2) {
+    text-align: center; /* Center alignment for the Picture column */
+  }
+  .delete-btn {
+    font-size: 1.5rem; 
+    cursor: pointer;
+    padding: 0; 
+    width: 2rem; 
+    height: 2rem; 
+    text-align: center; 
+    display: inline-flex; 
+    justify-content: center;
+    align-items: center;
+}
+

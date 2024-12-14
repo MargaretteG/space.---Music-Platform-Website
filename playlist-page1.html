@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>space.</title>
+    <link rel="icon" href="images/logo-head.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="Templates/bootstrap.min.css"> 
+    <link rel="stylesheet" href="Templates/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/landing_style.css">
+    <link rel="stylesheet" href="css/playlist_style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    
+
+    
+  </head> 
+
+<body>
+    
+    <!-- NAVBAR -->
+    <nav id="navbar" class="navbar navbar-expand-lg align-items-center" style="color: white;">
+        <div class="container-fluid mt-4">
+            <!-- Logo Section -->
+            <a class="ms-5 brand navbar-brand d-none d-md-block fs-2" href="userLandingPage.html">
+                <b style="color: #2af980;">space<span style="color: #f9622a;">.</span></b>
+            </a>
+    
+            <!-- Navbar Toggler for Mobile View -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+    
+            <!-- Navigation Menu -->
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-center">  
+                    <li class="nav-item mx-4 nav-item-active">
+                        <a class="nav-link fs-6" href="userLandingPage.html" style="color: #f9622a !important;">Home</a>
+                    </li>
+                    <li class="nav-item mx-4">
+                        <a class="nav-link fs-6" href="discover-page.html">Discover</a>
+                    </li>
+                    <li class="nav-item mx-4">
+                        <a class="nav-link fs-6" href="shop-page.html">Shop</a>
+                    </li>
+                    <!-- Cart Iconn -->
+                    <li class="nav-item">
+                        <a href="shopping-cart-page.html">
+                        <i class="profile-icon p-2 mx-3 fa-solid fa-cart-shopping"></i>
+                    </a>
+                    </li>
+                    <!-- Profile Icon -->
+                    <li class="nav-item">
+                        <a href="profile-page.html">
+                        <i class="profile-icon p-2 mx-3 fa-solid fa-user"></i>
+                    </a>
+                    </li>
+                    
+                    <!-- Sign In Button -->
+                    <li class="nav-item">
+                        <button type="button" class="content-btn custom-btn btn btn-dark px-4 py-2 me-4" data-bs-toggle="modal" data-bs-target="#logoutModal">
+                          LOG OUT
+                        </button>
+                      </li>
+                      
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Log Out Modal -->
+<div class="modal fade" id="logoutModal" tabindex="-1" aria-labelledby="logoutModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content" style="background-color: black; color: white; border: 1px solid #f9622a;">
+        <div class="modal-header">
+          <h5 class="modal-title fw-bold" id="logoutModalLabel">Leaving So Soon?</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            You’re about to step off your<b><span style="color: #2af980;"> space</span><span style="color: #f9622a;">.</span></b><br>Are you ready to leave leave the rhythm behind?
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="content-btn custom-btn btn btn-dark text-white " data-bs-dismiss="modal" style="background-color: transparent; border: #2af980 2px solid">Cancel</button>
+          <a href="index.html" class="content-btn custom-btn btn btn-dark fw-light">Log Out</a>
+        </div>
+      </div>
+    </div>
+  </div>
+    
+    
+
+<!-- BOTTOM MUSIC PLAYER -->
+<div id="player" class="fixed-bottom music-player text-white p-3">
+    <div class="ms-5 d-flex align-items-center gap-3">
+        <!-- Song Thumbnail -->
+        <img src="images/carousel-1.jpg" alt="Song Thumbnail" class="song-thumbnail ms-5" style="width: 50px; height: 50px; object-fit: cover; " >
+
+        <!-- Song Details -->
+        <div class=" player-text me-5">
+            <h5 class="mb-0" id="song-title">Break Stuff</h5>
+            <small id="song-artist">Limp Bizkit</small>
+        </div>
+
+        <audio id="music">
+            <source src="mp3/song-1.mp3" type="audio/mpeg">
+        </audio>
+
+        <div class="d-block">
+        <input type="range" value="0" id="progress">
+
+        <div class="controls d-flex justify-content-center align-items-center">
+               <div> <i class="fa-solid fa-backward"></i></div>
+               <div onclick="playPause()">
+                <i class="fa-solid fa-play" id="ctrlIcon"></i>
+            </div>
+                <div><i class="fa-solid fa-forward"></i></div>
+        </div>
+        </div>
+    </div>
+</div>
+
+<!-- MUSIC PLAYER CONTROLS -->
+<script>
+    let progress = document.getElementById("progress");
+    let music = document.getElementById("music");
+    let ctrlIcon = document.getElementById("ctrlIcon");
+
+    music.onloadedmetadata = function(){
+        progress.max = music.duration;
+        progress.value = music.currentTime;
+    }
+
+
+    function playPause() {
+    const ctrlIcon = document.getElementById("ctrlIcon"); 
+    if (ctrlIcon.classList.contains("fa-pause")) {
+        music.pause(); 
+        ctrlIcon.classList.remove("fa-pause");
+        ctrlIcon.classList.add("fa-play");
+    } else {
+        music.play();
+        ctrlIcon.classList.add("fa-pause");
+        ctrlIcon.classList.remove("fa-play");
+    }
+}
+
+
+    if(music.play()){
+        setInterval(()=>{
+            progress.value = music.currentTime;
+        },500);
+    }
+
+    progress.onchange = function(){
+        music.play();
+        music.currentTime = progress.value;
+        ctrlIcon.classList.add("fa-pause");
+        ctrlIcon.classList.remove("fa-play");
+    }
+
+
+ </script>
+
+<div class="container-fluid">
+    <div>
+        
+        <div id="mySidebar" class="sidebar">
+            <div class="side-title d-flex flex-row align-items-center sticky-top" style="z-index: 10;" onclick="closeNav()">
+             <i class="fa-solid fa-bars openbtn ms-1 my-1 p-2" style="background-color: #262525;"></i>
+             <h5 class="mt-2 fw-bold mb-0">Menu Library</h5> 
+            </div>
+            
+
+            <div class="side-folders d-flex flex-column">
+                <div class="d-flex flex-column">
+                    <a href="liked-songs.html" class="p-0 m-2 d-flex justify-content-start align-items-center slide-folder-item text-decoration-none">
+                        <i class="fa-regular fa-heart slide-folder-btn p-2 my-1 ms-0" ></i>
+                        <h6 class="mb-0">Your Liked Songs</h6>
+        
+                    </a>
+                        <a href="userLandingPage.html" class="p-0 m-2 d-flex justify-content-start align-items-center slide-folder-item text-decoration-none">
+                        <i class="fa-regular fa-folder slide-folder-btn p-2 my-1"></i>
+                        <h6 class="mb-0 ms-2">Your Playlist</h6>
+                        </a>
+                    <a href="artist-folder/artist-sabrina.html" class="p-0 m-2 d-flex justify-content-start align-items-center slide-folder-item text-decoration-none">
+                <div  class="artist-side-btn d-flex justify-content-center align-items-center my-2 p-2"><img class="" src="images/artist-sabrina.jpg" alt=""></div>
+                <div class="d-flex flex-column mb-0 ms-2">
+                <h6 class="mb-0 text-white" >Sabrina Carpenter</h6>
+                <h6 class="fw-light" style="color: #747373;">Artist</h6>
+            </div>
+        </a>
+        <a href="artist-folder/artist-chappell.html" class="p-0 m-2 d-flex justify-content-start align-items-center slide-folder-item text-decoration-none">
+                <div  class="artist-side-btn d-flex justify-content-center align-items-center my-2 p-2"><img class="" src="images/artist-chappell.jpg" alt=""></div>
+                <div class="d-flex flex-column mb-0 ms-2">
+                <h6 class="mb-0 text-white">Chappell Roan</h6>
+                <h6 class="fw-light" style="color: #747373;">Artist</h6>
+            </div>
+        </a>
+        <a href="artist-folder/artist-tyler.html" class="p-0 m-2 d-flex justify-content-start align-items-center slide-folder-item text-decoration-none">
+                <div  class="artist-side-btn d-flex justify-content-center align-items-center my-2 p-2"><img class="" src="images/artist-tyler.jpg" alt=""></div>
+                <div class="d-flex flex-column mb-0 ms-2">
+                <h6 class="mb-0 text-white" >Tyler, the creator</h6>
+                <h6 class="fw-light" style="color: #747373;">Artist</h6>
+            </div>
+        </a>
+        <a href="artist-folder/artist-billie.html" class="p-0 m-2 d-flex justify-content-start align-items-center slide-folder-item text-decoration-none">
+                <div  class="artist-side-btn d-flex justify-content-center align-items-center my-2 p-2"><img class="" src="images/artist-billie.jpg" alt=""></div>
+                <div class="d-flex flex-column mb-0 ms-2">
+                <h6 class="mb-0 text-white" >Billie Eilish</h6>
+                <h6 style="color: #747373;">Artist</h6>
+                </div>
+                </a>
+            </div>
+            </div>
+          <script>
+          function openNav() {
+            document.getElementById("mySidebar").style.width = "250px";
+            document.getElementById("main").style.marginLeft = "250px";
+            document.getElementById("sidebar-snip").style.marginLeft = "250px"
+            // Collapse the slidebar-snip
+            document.getElementById("sidebar-snip").classList.add("collapsed");
+            document.getElementById("side-content").classList.add("collapsed");
+          }
+          
+          function closeNav() {
+            document.getElementById("mySidebar").style.width = "0";
+            document.getElementById("main").style.marginLeft= "0";
+            document.getElementById("sidebar-snip").style.marginLeft = "0px"
+              // Expand the slidebar-snip back to its original state
+            document.getElementById("sidebar-snip").classList.remove("collapsed");
+            document.getElementById("side-content").classList.remove("collapsed");
+          }
+          </script>
+    </div> 
+     
+        
+       <div id="sidebar-snip" class="sidebar-snip d-flex flex-column">
+        <div onclick="openNav()"><i class="fa-solid fa-bars openbtn ms-1 my-1 p-2"></i></div>  
+        <div id="side-content" class="d-flex flex-column">
+            <a href="liked-songs.html">
+        <i class="fa-regular fa-heart openbtn side-btn p-2 my-1" ></i>
+             </a>
+             <a href="userLandingPage.html">
+        <i class="fa-regular fa-folder openbtn side-btn p-2 my-1"></i>
+    </a>
+    <a href="artist-folder/artist-sabrina.html">
+        <div  class="artist-side-btn d-flex justify-content-center align-items-center my-2 p-2"><img class="" src="images/artist-sabrina.jpg" alt=""></div></a>
+        <a href="artist-folder/artist-chappell.html">
+        <div  class="artist-side-btn d-flex justify-content-center align-items-center my-2 p-2"><img class="" src="images/artist-chappell.jpg" alt=""></div></a>
+        <a href="artist-folder/artist-tyler.html">
+        <div  class="artist-side-btn d-flex justify-content-center align-items-center my-2 p-2"><img class="" src="images/artist-tyler.jpg" alt=""></div></a>
+        <a href="artist-folder/artist-billie.html">
+        <div  class="artist-side-btn d-flex justify-content-center align-items-center my-2 p-2"><img class="" src="images/artist-billie.jpg" alt=""></div></a>
+    </div>
+    </div>
+        <div id="main">
+              <!-- FEATURED ALBUMS -->
+
+            
+        <div class="container">
+            <div class="row ms-2 mt-0 mb-2">
+                <div class="col-lg-12 d-flex align-items-center">
+                    <a href="userLandingPage.html" class="btn back-angle-btn d-flex align-items-center text-decoration-none" style="color: #4b4b4b;">
+                        <i class="fa-solid fa-angles-left me-2"></i>
+                        <span>HOME</span>
+                    </a>
+                </div>
+            </div>
+            
+            
+            
+<div class="ms-2 row mt-1">
+                   <!-- HEADER -->
+
+                <div class="row d-flex position-relative">
+                    <div class="col-lg-12 position-relative">
+                        <!-- Blurred Background -->
+                        <div 
+                            class="header-bg-image position-absolute top-0 start-0 w-100 h-100" 
+                            style="background-image: url('images/playlist-album1.jpg');">
+                        </div>
+                
+                        <!-- Content Overlay -->
+                        <div class="card cardHeader d-flex flex-row justify-content-start align-items-center p-3 position-relative">
+                            <img src="images/playlist-album1.jpg" alt="Icon" class="overlay-img mb-3">
+                            <div class="d-flex flex-column justify-content-start">
+                            <h1 class=" overlay-text text-white fw-bold text-start">Flower Boy</h1>
+                            <h2 class="fw-lighter">Tyler, The Creator</h2>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+
+<!-- Song List -->
+<div class="container mt-4 ms-3">
+    <div class="row mt-3">
+        <!-- Song Card 1 -->
+        <div class="col-lg-12 col-md-10 mb-3">
+            <div class="song-card card  text-white px-3 py-2 d-flex">
+                <div class="row">
+                <div class="d-flex align-items-center justify-content-between">
+                    
+                     <div class="col-lg-5 d-flex justify-content-start align-items-center ms-3"> 
+                        <h6 class="me-4 mb-0">1</h6>
+                    <img src="images/playlist-album1.jpg" alt="Song Thumbnail" class="song-thumbnail me-3" />
+                    
+                    <div class="d-flex flex-column mb-0 ms-2">
+                        <h5 class="mb-0" >Foreword</h5>
+                        <small style="color: #747373;">Tyler, The Creator ft. Rex Orange County</small>
+                    </div>
+                    </div>
+                    <div class="col-lg-3 justify-content-start">
+                        <h6 class="align-items-center mb-0"><i class="fa-solid fa-music"></i> 530,000</h6>
+                    </div>
+                    <div class="col-lg-2 justify-content-start">
+                        <h6 class="align-items-center mb-0">2:49</h6>
+                    </div>
+                    <!-- Play/Pause Button -->
+                    <div class="col-lg-1 justify-content-center">
+                    <button class="btn btn-outline-light play-pause-btn" data-audio="mp3/song-1.mp3">
+                        <i class="fas fa-play"></i>
+                    </button>
+                    </div>
+                    <div class="col-lg-1 justify-content-center">
+                        <button class="heart-btn btn like-song-btn d-flex justify-content-center align-items-center" 
+                                onclick="addToLikedSongs('Foreword', 'images/playlist-album1.jpg', 'Tyler, The Creator ft. Rex Orange County')">
+                            <i id="heart-btn-id" class="like-song-btn-icon p-2" 
+                               data-song-title="Foreword"
+                               data-song-artist="Tyler, The Creator ft. Rex Orange County" 
+                               data-song-image="images/playlist-album1.jpg"></i>
+                        </button>
+                    </div> 
+                    
+                </div>
+            </div>
+            </div>
+        </div>
+        <!-- Song 2-->
+        <div class="col-lg-12 col-md-10 mb-3">
+            <div class="song-card card  text-white px-3 py-2 d-flex">
+                <div class="row">
+                <div class="d-flex align-items-center justify-content-between">
+                    
+                     <div class="col-lg-5 d-flex justify-content-start align-items-center ms-3"> 
+                        <h6 class="me-4 mb-0">2</h6>
+                    <img src="images/playlist-album1.jpg" alt="Song Thumbnail" class="song-thumbnail me-3" />
+                    
+                    <div class="d-flex flex-column mb-0 ms-2">
+                        <h5 class="mb-0" >Where This Flower Blooms</h5>
+                        <small style="color: #747373;">Tyler, The Creator ft. Frank Ocean</small>
+                    </div>
+                    </div>
+                    <div class="col-lg-3 justify-content-start">
+                        <h6 class="align-items-center mb-0"><i class="fa-solid fa-music"></i> 530,000</h6>
+                    </div>
+                    <div class="col-lg-2 justify-content-start">
+                        <h6 class="align-items-center mb-0">2:49</h6>
+                    </div>
+                    <!-- Play/Pause Button -->
+                    <div class="col-lg-1 justify-content-center">
+                    <button class="btn btn-outline-light play-pause-btn" data-audio="mp3/song-1.mp3">
+                        <i class="fas fa-play"></i>
+                    </button>
+                    </div>
+                    <div class="col-lg-1 justify-content-center">
+                        <button class="heart-btn btn like-song-btn d-flex justify-content-center align-items-center" 
+                                onclick="addToLikedSongs('Where This Flower Blooms', 'images/playlist-album1.jpg', 'Tyler, The Creator ft. Frank Ocean')">
+                            <i id="heart-btn-id" class="like-song-btn-icon p-2" 
+                               data-song-title="Where This Flower Blooms"
+                               data-song-artist="Tyler, The Creator ft. Frank Ocean" 
+                               data-song-image="images/playlist-album1.jpg"></i>
+                        </button>
+                    </div> 
+                    
+                </div>
+            </div>
+            </div>
+        </div>
+        <!-- Song 3-->
+        <div class="col-lg-12 col-md-10 mb-3">
+            <div class="song-card card  text-white px-3 py-2 d-flex">
+                <div class="row">
+                <div class="d-flex align-items-center justify-content-between">
+                    
+                     <div class="col-lg-5 d-flex justify-content-start align-items-center ms-3"> 
+                        <h6 class="me-4 mb-0">3</h6>
+                    <img src="images/playlist-album1.jpg" alt="Song Thumbnail" class="song-thumbnail me-3" />
+                    
+                    <div class="d-flex flex-column mb-0 ms-2">
+                        <h5 class="mb-0" >See You Again</h5>
+                        <small style="color: #747373;">Tyler, The Creator ft. Kali Uchis</small>
+                    </div>
+                    </div>
+                    <div class="col-lg-3 justify-content-start">
+                        <h6 class="align-items-center mb-0"><i class="fa-solid fa-music"></i> 530,000</h6>
+                    </div>
+                    <div class="col-lg-2 justify-content-start">
+                        <h6 class="align-items-center mb-0">2:49</h6>
+                    </div>
+                    <!-- Play/Pause Button -->
+                    <div class="col-lg-1 justify-content-center">
+                    <button class="btn btn-outline-light play-pause-btn" data-audio="mp3/song-1.mp3">
+                        <i class="fas fa-play"></i>
+                    </button>
+                    </div>
+                    <div class="col-lg-1 justify-content-center">
+                        <button class="heart-btn btn like-song-btn d-flex justify-content-center align-items-center" 
+                                onclick="addToLikedSongs('See You Again', 'images/playlist-album1.jpg', 'Tyler, The Creator ft. Kali Uchis')">
+                            <i id="heart-btn-id" class="like-song-btn-icon p-2" 
+                               data-song-title="See You Again"
+                               data-song-artist="Tyler, The Creator ft. Kali Uchis" 
+                               data-song-image="images/playlist-album1.jpg"></i>
+                        </button>
+                    </div> 
+                    
+                </div>
+            </div>
+            </div>
+        </div>
+        <!-- Song 4-->
+        <div class="col-lg-12 col-md-10 mb-3">
+            <div class="song-card card  text-white px-3 py-2 d-flex">
+                <div class="row">
+                <div class="d-flex align-items-center justify-content-between">
+                    
+                     <div class="col-lg-5 d-flex justify-content-start align-items-center ms-3"> 
+                        <h6 class="me-4 mb-0">4</h6>
+                    <img src="images/playlist-album1.jpg" alt="Song Thumbnail" class="song-thumbnail me-3" />
+                    
+                    <div class="d-flex flex-column mb-0 ms-2">
+                        <h5 class="mb-0" >A BOY IS A GUN</h5>
+                        <small style="color: #747373;">Tyler, The Creator</small>
+                    </div>
+                    </div>
+                    <div class="col-lg-3 justify-content-start">
+                        <h6 class="align-items-center mb-0"><i class="fa-solid fa-music"></i> 530,000</h6>
+                    </div>
+                    <div class="col-lg-2 justify-content-start">
+                        <h6 class="align-items-center mb-0">2:49</h6>
+                    </div>
+                    <!-- Play/Pause Button -->
+                    <div class="col-lg-1 justify-content-center">
+                    <button class="btn btn-outline-light play-pause-btn" data-audio="mp3/song-1.mp3">
+                        <i class="fas fa-play"></i>
+                    </button>
+                    </div>
+                    <div class="col-lg-1 justify-content-center">
+                        <button class="heart-btn btn like-song-btn d-flex justify-content-center align-items-center" 
+                                onclick="addToLikedSongs('A BOY IS A GUN', 'images/playlist-album1.jpg', 'Tyler, The Creator')">
+                            <i id="heart-btn-id" class="like-song-btn-icon p-2" 
+                               data-song-title="A BOY IS A GUN"
+                               data-song-artist="Tyler, The Creator" 
+                               data-song-image="images/playlist-album1.jpg"></i>
+                        </button>
+                    </div> 
+                    
+                </div>
+            </div>
+            </div>
+        </div>
+        <!-- Song 5-->
+        <div class="col-lg-12 col-md-10 mb-3">
+            <div class="song-card card  text-white px-3 py-2 d-flex">
+                <div class="row">
+                <div class="d-flex align-items-center justify-content-between">
+                    
+                     <div class="col-lg-5 d-flex justify-content-start align-items-center ms-3"> 
+                        <h6 class="me-4 mb-0">1</h6>
+                    <img src="images/playlist-album1.jpg" alt="Song Thumbnail" class="song-thumbnail me-3" />
+                    
+                    <div class="d-flex flex-column mb-0 ms-2">
+                        <h5 class="mb-0" >9:11</h5>
+                        <small style="color: #747373;">Tyler, The Creator</small>
+                    </div>
+                    </div>
+                    <div class="col-lg-3 justify-content-start">
+                        <h6 class="align-items-center mb-0"><i class="fa-solid fa-music"></i> 530,000</h6>
+                    </div>
+                    <div class="col-lg-2 justify-content-start">
+                        <h6 class="align-items-center mb-0">2:49</h6>
+                    </div>
+                    <!-- Play/Pause Button -->
+                    <div class="col-lg-1 justify-content-center">
+                    <button class="btn btn-outline-light play-pause-btn" data-audio="mp3/song-1.mp3">
+                        <i class="fas fa-play"></i>
+                    </button>
+                    </div>
+                    <div class="col-lg-1 justify-content-center">
+                        <button class="heart-btn btn like-song-btn d-flex justify-content-center align-items-center" 
+                                onclick="addToLikedSongs('9:11', 'images/playlist-album1.jpg', 'Tyler, The Creator')">
+                            <i id="heart-btn-id" class="like-song-btn-icon p-2" 
+                               data-song-title="9:11"
+                               data-song-artist="Tyler, The Creator" 
+                               data-song-image="images/playlist-album1.jpg"></i>
+                        </button>
+                    </div> 
+                    
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+            <!-- FOOTER -->
+            <footer>
+                <div class="container-footer">
+                    <footer class="d-flex flex-wrap justify-content-between align-items-center m-4 px-5 py-4 mb-5 border-top">
+                        <div class="col-md-4 text-center text-md-start mx-auto mx-md-0">
+        
+                            <ul class="fa-sm-l list-unstyled d-flex justify-content-center justify-content-md-start">
+                                <li class="ms-3" ><a class="text-body-secondary" href="https://www.facebook.com" target="_blank"><i class="fa-2xl fa-brands fa-facebook"></i></a></li>
+                                <li class="ms-3"><a class="text-body-secondary" href="https://www.instagram.com" target="_blank"><i class="fa-2xl fa-brands fa-instagram"></i></a></li>
+                                <li class="ms-3"><a class="text-body-secondary" href="https://www.twitter.com" target="_blank"><i  class="fa-2xl fa-brands fa-x-twitter"></i></a></li>
+                                <li class="ms-3"><a class="text-body-secondary" href="https://www.threads.net" target="_blank"><i class="fa-brands fa-threads fa-2xl"></i></a></li>
+                            </ul>
+                            <p><i class="fa-solid fa-location-pin"></i> Batangas State University JPLPC <br> <i class="fa-solid fa-envelope"></i> Space@gmail.com | +63-949-563-0130</p>
+                        </div>
+        
+        
+                    
+                        <div class="col-md-4 mb-0 text-body-secondary mx-auto mx-md-0 text-center text-md-end">
+                            <a style="text-decoration: none; color: #353231;" href="#" data-bs-toggle="modal" data-bs-target="#PrivacyPolicy">Privacy Policy |</a>
+                            <a style="text-decoration: none; color: #353231;" href="#" data-bs-toggle="modal" data-bs-target="#TermsService">Terms of Service |</a>
+                            <a style="text-decoration: none; color: #353231;" href="#" data-bs-toggle="modal" data-bs-target="#FAQs">FAQs</a>
+                            <p>© 2024, space. All Rights Reserved. <br>Site for WebDev Final Project</p>
+        
+                        </div>
+                    </footer>
+                </div>
+            </footer>
+
+</div>
+
+</div>
+
+
+
+    <!-- SCROLLED NAVBAR -->
+    <script>
+        window.addEventListener("scroll", function () {
+            const navbar = document.getElementById("navbar");
+            const player = document.getElementById("player");
+            if (window.scrollY > 20) { 
+                navbar.classList.add("scrolled");
+                player.classList.add("scrolled")
+                
+
+            } else {
+                navbar.style.backgroundColor = "transparent";
+                navbar.style.color = "";
+                navbar.classList.remove("scrolled");
+                player.classList.remove("scrolled")
+            }
+        });
+    </script>
+
+<!-- PLAY SONG -->
+    <script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const buttons = document.querySelectorAll(".play-pause-btn");
+        let currentAudio = null; // Track the currently playing audio
+    
+        buttons.forEach(button => {
+            button.addEventListener("click", () => {
+                const audioSrc = button.getAttribute("data-audio");
+    
+                // Check if there's already an audio element
+                if (!currentAudio) {
+                    currentAudio = new Audio(audioSrc); // Create a new audio object
+                }
+    
+                // If the same button is clicked, toggle play/pause
+                if (currentAudio.src.includes(audioSrc)) {
+                    if (currentAudio.paused) {
+                        currentAudio.play();
+                        button.innerHTML = '<i class="fas fa-pause"></i>';
+                    } else {
+                        currentAudio.pause();
+                        button.innerHTML = '<i class="fas fa-play"></i>';
+                    }
+                } else {
+                    // If a different button is clicked, stop the previous audio and play the new one
+                    currentAudio.pause();
+                    currentAudio = new Audio(audioSrc);
+                    currentAudio.play();
+    
+                    // Reset all buttons to "play" state
+                    buttons.forEach(btn => btn.innerHTML = '<i class="fas fa-play"></i>');
+    
+                    // Change the clicked button to "pause"
+                    button.innerHTML = '<i class="fas fa-pause"></i>';
+                }
+    
+                // Add an event listener to reset the button when the audio ends
+                currentAudio.addEventListener("ended", () => {
+                    button.innerHTML = '<i class="fas fa-play"></i>';
+                    currentAudio = null; // Reset currentAudio
+                });
+            });
+        });
+    });
+    </script>
+    
+   
+    
+     
+      
+      <script src="script/like-song-storage.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="Templates/bootstrap.bundle.js"></script>
+    <script src="Templates/all.min.js"></script>
+</body>
+</html>

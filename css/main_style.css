@@ -1,0 +1,343 @@
+body { 
+
+    font-family: "Poppins", sans-serif;
+    background-color: black;
+    color: white;
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+}
+.navbar {
+    position: fixed;
+    color: white;
+    z-index: 10;
+    width: 100%;
+    
+}
+/* .navbar-brand b{
+    color: #2af980;
+} */
+
+#navbar {
+    background-color: transparent;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+#navbar.scrolled{
+    margin-top: -20px;
+}
+#navbar.scrolled .navbar-brand b{
+    color: #2af980;
+
+}
+
+#navbar.scrolled a.nav-link, 
+#navbar.scrolled .custom-btn, #navbar.scrolled .navbar-brand {
+    color: white; 
+    transition: color 0.3s ease; 
+}
+#navbar.scrolled a.brand{
+    color: white;
+}
+#navbar.scrolled a.nav-link:hover {
+    color: #f9622a; 
+    transition: color 0.3s ease; 
+}
+#player{
+    background-color: black;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+#player.scrolled {
+    background-color: rgba(24, 131, 68, 0.762);
+    /* background-color: #a13d19d5; */
+}
+#player.scrolled input{
+    color: #ffffff;
+    background-color: #ffffff;
+}
+
+#player.scrolled .controls div{
+    color: #ffff;
+    
+}
+#player.scrolled .controls div:nth-child(2){
+    border: 1px solid white;
+}
+
+
+
+/* Navbar Hover Glow Effect */
+.navbar-nav .nav-item .nav-link:hover {
+    color: #ffffff; 
+    text-shadow: 0 0 10px #f9622a, 0 0 50px #f9622a; 
+    transition: text-shadow 0.3s ease, color 0.3s ease; 
+}
+
+
+/* MUSIC PLAYER CONTROLS */
+#progress{
+    -webkit-appearance: none;
+    width: 100%;
+    height: 4px;
+    background-color: #f9622a;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-bottom: 15px;
+}
+#progress::-webkit-slider-thumb{
+    -webkit-appearance: none;
+    background-color: #2af980;
+    width: 13px;
+    height: 13px;
+    border-radius: 50%;
+    box-shadow: 0 0 10px #2af980, 0 0 50px #2af980;
+}
+#player.scrolled #progress::-webkit-slider-thumb{
+    background-color: #f9622a;
+    box-shadow: 0 0 10px #f9622a, 0 0 50px #f9622a;
+}
+.controls div{
+    width: 30px;
+    height: 30px;
+    margin: 0px 50px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    color: #f9622a;
+    cursor: pointer;
+}
+.controls div:nth-child(2){
+    transform: scale(1);
+    border-radius: 50%;
+    border: 1px solid #f9622a;
+
+}
+
+.controls div:hover{
+    box-shadow: 0 0 10px #f9622a, 0 0 50px #f9622a;
+}
+
+
+.music-player {
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 9999;
+    border-radius: 0; 
+}
+
+.song-thumbnail {
+    width: 50px; 
+    height: 50px;
+    object-fit: cover; 
+}
+.content{
+    padding-bottom: 40px;
+}
+
+.container-footer {
+    margin-top: 80px;
+    color: #353231;
+    text-align: center;
+    position: relative; 
+    z-index: 1;
+  }
+
+
+/* CUSTOME BUTTON */
+.custom-btn{
+    background-color: #2af980;
+    border-radius: 50px;
+    color: black;
+    padding: 14px;
+    border: none;
+    font-weight: bold;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    position: relative;
+}
+.content-btn{
+    background-color: #2af980;
+    
+}
+/* Button Hover Effect */
+.content-btn:hover{
+    background-color: #19934c !important;
+}
+.custom-btn:hover {
+    color: white;
+    background-color: #a33615; 
+    transform: scale(1.04); 
+    transition: background-color 0.3s ease, transform 0.3s ease; 
+}
+
+
+/* CAROUSEL */
+.carousel-img{
+
+}
+#carouselExampleDark {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 0;
+}
+
+.carousel-item img {
+    height: 100vh;
+    width: 100%;
+    object-fit: cover; 
+    transition: transform 5s ease;
+}
+.carousel-item.active img {
+    transform: scale(1.1); /* Slightly zoom the image */
+  }
+
+/* CARD FOR ALBUM */
+.card {
+    overflow: hidden;
+    border: none;
+}
+.card-img {
+    height:300px;
+    object-fit: cover;
+}
+.card-img-overlay {
+    background: rgba(0, 0, 0, 0.274); 
+    text-align: center;
+}
+.album-card {
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.album-card:hover .card-img-overlay {
+    background: rgba(165, 45, 9, 0.647); 
+}
+
+.album-card .card-img {
+    transition: transform 0.3s ease;
+}
+
+
+.album-card:hover .card-img {
+    transform: scale(1.1); 
+}
+
+.album-card .card-title,
+.album-card .card-text {
+    transition: font-size 0.3s ease, color 0.3s ease; 
+}
+
+.album-card:hover .card-title {
+    font-size: 1.8rem;
+    color: white; 
+}
+
+.album-card:hover .card-text {
+    font-size: 1.2rem; 
+    color: white;
+}
+
+/* CARD FOR SONGS */
+.song-thumbnail {
+    width: 50px;               
+    height: 50px;              
+    border-radius: 5px;      
+}
+.song-card{
+    border-radius: 0%;
+    background-color: #353231;
+    border: #9f0b7d solid;
+    border-width: 0px 0px 3px 0px;
+}
+
+/* CARD FOR ARTISTS */
+.artist-card {
+    position: relative;
+    overflow: hidden;
+    border: none;
+    width: 300px;
+    height: 300px;
+    border-radius: 0%;
+    border: 2px solid #f9622a;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 50%;
+
+}
+.artist-container h6{
+    color: #59230f;
+}
+
+.artist-card img {
+    width: 100%;
+    height: 100%;
+    border-radius: 0%;
+    object-fit: cover;
+}
+
+.artist-card:hover{
+    transform: scale(1.05);
+    box-shadow: 0 0 10px #f9622a, 0 0 50px #f9622a;
+}
+.artist-info{
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+.artist-section:hover ~ .artist-info{
+    visibility: visible;
+    opacity: 1;
+}
+
+/* shop snippet */
+.card-img {
+    height:300px;
+    object-fit: cover;
+}
+.card-img-overlay {
+    background: rgba(0, 0, 0, 0.274); 
+    text-align: center;
+}
+.merch-card-snip {
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    border-radius: 0%;
+}
+
+.album-card:hover .card-img-overlay {
+    background: rgba(165, 45, 9, 0.647); 
+}
+
+.merch-card-snip .card-img {
+    transition: transform 0.3s ease;
+}
+
+
+.merch-card-snip:hover .card-img {
+    transform: scale(1.1); 
+}
+
+.merch-card-snip .card-title,
+.merch-card-snip .card-text {
+    transition: font-size 0.3s ease, color 0.3s ease; 
+}
+
+.merch-card-snip:hover .card-title {
+    font-size: 1.8rem;
+    color: white; 
+}
+
+.merch-card-snip:hover .card-text {
+    font-size: 1.2rem; 
+    color: white;
+}
+
+
+
+
+

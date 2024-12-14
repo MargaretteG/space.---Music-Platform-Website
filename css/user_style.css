@@ -1,0 +1,422 @@
+/* Keyframes for fade-in and slide-up */
+@keyframes fadeSlideIn {
+  from {
+    opacity: 0; /* Fully transparent */
+    transform: translateY(5%); /* Start below the viewport */
+  }
+  to {
+    opacity: 1; 
+    transform: translateY(0); /* End at the original position */
+  }
+}
+
+/* Keyframes for fade-out and slide-down */
+@keyframes fadeSlideOut {
+  from {
+    opacity: 1; /* Fully visible */
+    transform: translateY(0); /* Original position */
+  }
+  to {
+    opacity: 0; /* Fully transparent */
+    transform: translateY(100%); /* Slide out below the viewport */
+  }
+}
+
+#main{
+  opacity: 0; /* Initially hidden */
+  animation: fadeSlideIn 0.5s ease-out forwards; 
+}
+#main.fade-out {
+  animation: fadeSlideOut 0.5s ease-in forwards; /* Forward keeps the style */
+}
+
+
+
+.navbar {
+  position: fixed; 
+  top: 0; 
+  left: 0; 
+  width: 100%; 
+  z-index: 10; 
+  background-color: black !important;
+  margin-bottom: 150px;
+}
+#navbar.scrolled{
+  background-color: #151414 !important;
+}
+.nav-item a{
+  color: white;
+}
+/* Apply orange underline to the current page */
+.nav-item-active {
+  font-weight: bold;
+  border-bottom: 3px solid #f9622a;
+  padding-bottom: 3px; 
+}
+
+
+
+.content .content-page{
+  padding-top: 70px;
+}
+.container-fluid{
+  margin-top: 100px;
+}
+.profile-icon{
+  color: white;
+  height: 20px;
+  width: 20px;
+  border: 1px solid #f9622a;
+  border-radius: 50%;
+  background-color: #f9622a;
+}
+/* SIDEBAR */
+
+.sidebar {
+  height: 70%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  transition: 0.5s;
+  background-color: #151414;
+  color: white;
+  border-radius: 0px 20px 20px 0px;
+}
+
+
+.sidebar::-webkit-scrollbar {
+  width: 10px; 
+}
+
+.sidebar::-webkit-scrollbar-track {
+  background: #151414; 
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+  background-color: #555; 
+
+}
+
+.sidebar::-webkit-scrollbar-thumb:hover {
+  background-color: #757575; 
+}
+
+.sidebar a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+
+}
+
+.sidebar a:hover {
+  color: #f1f1f1;
+}
+
+
+.sidebar-snip {
+  height: 70%;
+  z-index: 10;
+  position: fixed;
+  font-size: 20px;
+  cursor: pointer;
+  background-color: #151414;
+  color: white;
+  padding: 10px 15px;
+  border-radius: 20px;
+  transition: margin-left .5s ease, height 0.5s ease, overflow 0.5s ease, opacity 1s ease, visibility 0.5s ease;
+
+}
+.side-title{
+  background-color: #262525;
+  color: #4c4848; 
+  cursor: pointer;
+ 
+}
+.side-title:hover h5{
+  color: #f9622a;
+}
+.side-title:hover .fa-bars {
+  color: #f9622a; 
+}
+.side-folders img{
+  border-radius: 50%;
+  height: 50px;
+  width: 50px;
+}
+.slide-folder-btn{
+  color: #2af980;
+  border-radius: 5px;
+  height: 35px;
+  width: 35px;
+  cursor: pointer;
+
+}
+.slide-folder-item{
+  cursor: pointer;
+  
+}
+.slide-folder-item:hover{
+  background-color: #322f2f;
+  border-radius: 10px;
+}
+.slide-folder-item:hover .slide-folder-btn{
+  color: #f9622a;
+}
+.slide-folder-item:hover img{
+  border: #f9622a 3px solid;
+}
+
+
+
+#sidebar-snip.collapsed {
+  opacity: 0; 
+  visibility: hidden; 
+  pointer-events: none; 
+}
+#side-content.collapsed{
+  height: 0;
+opacity: 0; 
+visibility: hidden; 
+pointer-events: none; 
+}
+
+#side-content{
+transition: opacity 0.5s ease, visibility 0.5s ease, height 0.5s ease;
+opacity: 1; 
+visibility: visible;
+}
+.openbtn{
+  cursor: pointer;
+  background-color: #151414;
+  height: 30px;
+  width: 30px;
+  color: #4c4848;
+}
+.openbtn:hover {
+  color: #f9622a !important;
+}
+.side-btn{
+  color: #2af980;
+  border-radius: 5px;
+  height: 35px;
+  width: 35px;
+}
+.side-btn:hover{
+  background-color: #322f2f;
+  border-radius: 5px;
+  height: 35px;
+  width: 35px;
+}
+
+.sidebar-snip img{
+  
+  border-radius: 50%;
+  height: 50px;
+  width: 50px;
+}
+.artist-side-btn{
+  background-color: transparent;
+  border-radius: 5px;
+  height: 55px;
+  width: 55px;
+}
+.artist-side-btn:hover img{
+  box-shadow: 0 0 10px #f9622a, 0 0 50px #f9622a;
+}
+
+#main {
+  transition: margin-left .5s;
+  padding: 16px;
+
+}
+
+/* PLAYLIST SECTION */
+.playlist-card {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  background-color: transparent;
+  border: transparent 1px solid ;
+  
+}
+.playlist-card:hover{
+  /* background-color: #322f2f; */
+  border: #2af980 1px solid ;
+  box-shadow: 0 0 5px #2af980, 0 0 40px #2af980;
+}
+.play-btn-thumbnail {
+  opacity: 0; 
+  transition: transform 0.3s ease-out, opacity 0.3s ease-out; 
+  font-size: 3.5rem; 
+  color: #2af980;
+  z-index: 2;
+  margin-top: 100%;
+
+
+}
+
+.playlist-card:hover .play-btn-thumbnail {
+  opacity: 1; 
+}
+
+.playlist-card img{
+  height: 280px;
+  border-radius: 15px;
+}
+.card-img-playlist {
+  border: none;
+  object-fit: cover;
+  height: 350px;
+  z-index: 1;
+  background-color: transparent;
+  transition: transform 0.3s ease;   
+}
+
+/* MOST PLAYED SONGS SECTION*/
+.play-pause-btn{
+  color: white;
+  height: 40px;
+  width: 40px;
+  border: solid  1px;
+  border-radius: 50%;
+}
+.like-song-btn-icon{
+  color: white;
+  height: 2rem;
+}
+.like-song-btn{
+  height: 2.5rem;
+  width: 2.5rem;
+  border: 1px solid white;
+  border-radius: 50%;
+}
+
+.like-song-btn-icon:hover{
+  color: #4c4848;
+}
+.like-song-btn:hover{
+  border-color: #f9622a;
+  background-color: #f9622a;
+}
+.like-song-btn:hover .like-song-btn-icon{
+  color: #4c4848;
+}
+.play-pause-btn:hover{
+  color: #4c4848;
+  background-color: #2af980;
+  border-color: #2af980;
+}
+
+/* PLAYLIST PAGE */
+.cardHeader{
+  background-size: cover; 
+  background-position: center; 
+  background-repeat: no-repeat; 
+  color: white; 
+  background-color: transparent;
+  height: 300px; 
+  position: relative;
+  /* filter: blur(2.5px); 
+  opacity: 0.6; */
+}
+/* Ensure the background image fits the container */
+.header-bg-image {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100%; /* Confines to the parent width */
+  height: 300px; /* Adjust as needed */
+  filter: blur(2.5px); /* Blur effect */
+  opacity: 0.6; /* Dim the background */
+  z-index: 1; /* Ensures it's below content */
+}
+
+/* The content inside the card */
+.cardHeader {
+  height: 300px; /* Match the height of the background image */
+  background: none; /* Transparent */
+  z-index: 2; /* Places it above the blurred background */
+  position: relative; /* Ensures the content stays on top */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Content text and image */
+.cardHeader h1, 
+.cardHeader img {
+  z-index: 3; /* Keeps these elements sharp and above blur */
+}
+
+.cardHeader h1 {
+  color: white;
+  font-size: 3rem; /* Adjust font size */
+  margin: 0 1rem;
+}
+.cardHeader h2{
+  font-size: 2rem;
+  margin: 0 1rem;
+}
+
+.cardHeader img {
+  width: 250px; /* Adjust size */
+  height: 250px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+/* Optional responsiveness */
+@media (max-width: 768px) {
+  .header-bg-image {
+      height: 200px;
+  }
+
+  .cardHeader {
+      height: 200px;
+  }
+
+  .cardHeader h1 {
+      font-size: 1.5rem;
+  }
+}
+
+.back-angle-btn:hover{
+  cursor: pointer;
+  color: #f9622a !important;
+}
+.back-angle-container h6,
+.back-angle-container i {
+    transition: color 0.3s ease; 
+}
+
+/* Hover effect on the container */
+.back-angle-container:hover h6,
+.back-angle-container:hover i {
+    color: #f9622a; 
+}
+
+
+/* SHOP PAGE */
+.page-header-pic{
+  height: 100px;
+  width: 100%;
+  border: #f9622a 3px solid;
+}
+.page-header-pic img{
+
+}
+
+
+
+/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+  .sidebar {padding-top: 15px;}
+  .sidebar a {font-size: 18px;}
+}

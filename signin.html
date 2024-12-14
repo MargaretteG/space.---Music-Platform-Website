@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>space. | Sign In</title>
+    <link rel="icon" href="images/logo-head.png">
+    <link rel="stylesheet" href="Templates/bootstrap.min.css"> 
+    <link rel="stylesheet" href="Templates/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/signin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap" rel="stylesheet">
+    <style>
+      
+        @media (max-width: 768px){
+            body{
+                height: 100%; 
+            }
+            
+    .astronaut{
+        display: none;
+    }      
+    #sign-img{
+        display: none;
+    }
+    .text-brand{
+        display: none;
+
+    }
+    .leftSide{
+        border-radius: 10px 10px 0 0;
+    }
+    .rightSide{
+        border-radius: 0 0 10px 10px;
+    }
+    .br-sign{
+        display: none;
+    }
+    .sign-logo .brand{
+        display: none;
+    }
+       
+}
+    </style> 
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <div class="ms-5 mt-3 align-items-start">
+            <a class="fs-2 navbar-brand text-brand" href="index.html">
+                <b style="color: #2af980;">space<span style="color: #f9622a;">.</span></b>
+            </a>
+
+        </div>
+
+    </nav>
+
+    <!-- SIGN IN CONTAINER -->
+    <div class="container-fluid container justify-content-center align-items-center">
+        <div class="row justify-content-center mx-4 mx-md-0 py-5">
+            <!-- LEFT SIDE -->
+            <div class="col-lg-4 col-md-5 col-sm-12 leftSide">
+                <div class="leftSignIn align-items-center d-flex flex-column position-relative" style="height: 100%;">
+                    <h4 class="texts mt-md-5 mt-4 fw-bold text-center fs-5">Doesn't have an account yet?</h4>
+                    <span class="texts text-center fw-light fs-sm-6">Start your space journey and explore wide <br class="br-sign"> range of music. Create your account now!</span>
+                    <button type="button" class="outline-btn mt-3 mt-md-4 mb-3 mb-md-0 btn px-4" onclick="window.location.href='signup.html'">Sign Up</button>
+                    
+                    </div>
+            </div>
+
+            <!-- RIGHT SIDE -->
+            <div class="col-lg-4 col-md-5  col-sm-12 rightSide">
+                <div class="p-2 rightSignIn d-flex flex-column align-items-center">
+                    <form class="needs-validation w-100" novalidate id="SignInForm">
+                        <div class="sign-logo d-flex align-items-center justify-content-center">
+                            <div>
+                                <h4 class="mt-md-4 mt-4 text-center mx-auto" style="color: #fff;">user<span style="color: #f9622a;">.</span></h4>
+                                <h2 class="fs-1 fw-bold text-center mb-4">sign in</h2>
+                            </div>
+
+                        </div>
+                        
+                        <div class="form mb-3 w-100 mt-3 mt-md-0" style="background-color: #000;">
+                            <h5 class="fw-light fs-6">Email address</h5>
+                            <input type="email" class="form-control form-sign" id="email" placeholder="Email address" required>
+                              
+                            <div class="invalid-feedback">
+                                Please provide a valid email address.
+                            </div>
+                        </div>
+                        <div class="form mb-3 w-100">
+                            <h5 class="fw-light fs-6">Password</h5>
+                            <input type="password" class="form-control form-sign" id="password" placeholder="Password" required>
+                            <div class="invalid-feedback">
+                                Please provide your password.
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 col-sm-8 checkbox mb-4 w-60 d-flex justify-content-start">
+                                <label>
+                                <input type="checkbox" value="remember-me" id="remember"> Remember me
+                            </label>
+                                <div class="invalid-feedback">
+                                    You must agree before submitting.
+                                </div>
+                            </div>
+                            <a class="link-style d-none d-md-block col-md-6 col-sm-4 col text-end" href="#" data-bs-toggle="modal" data-bs-target="#forgotPassModal">Forgot Password</a>
+                        </div>
+
+                        <div class="d-flex flex-column align-items-center">
+                            <button style="background-color: #f9622a;" class="btn custom-btn py-md-3 px-5" type="button" onclick="signInPass()">Sign in</button>
+                            <a class="d-block d-md-none mt-2 text-end" href="#" data-bs-toggle="modal" data-bs-target="#forgotPassModal">Forgot Password</a>
+                        </div>
+                        
+
+                        <hr class="my-4" style="width: 100%; border-color: #000;">
+                        <small class=" text-body-secondary text-center">By clicking Sign in, you agree to the terms of use.</small>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+        <img id="sign-img" class="astronaut position-absolute img-fluid" style="background: transparent; z-index: 2; width: 550px; height: auto; bottom: -70px; left: 150px" src="images/astronaut.png" alt="Space Astronaut">
+    </div>
+<!-- FORGOT PASSWORD MODAL -->
+<div class="modal-sign modal fade" id="forgotPassModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" style="max-width: 600px;"> <!-- Custom width with max-width -->
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="termsModalLabel">Forgot Password</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body overflow-auto" style="max-height: 400px;"> 
+                <h6 class="fs-6 fw-light">Please enter the email address associated with your account, and we will send you a link to reset your password.</h6>
+                <div class="form-floating mb-3 w-100 mt-3 mt-md-0">
+                    <input type="email" class="form-control" id="email" placeholder="name@example.com" required>
+                    <label for="floatingInput" class="form-label">Email address</label>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="bdonatebtn btnCustom btn btn-dark btn-sm px-3" data-bs-dismiss="modal">Send</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+    <script>
+        function signInPass() {
+            var form = document.getElementById("SignInForm");
+
+           
+            if (form.checkValidity()) {
+                var email = document.getElementById("email").value;
+                var pass = document.getElementById("password").value;
+                var check = document.getElementById("remember").checked;
+
+                
+                if (email === "user@gmail.com" && pass === "user123" || check === true) {
+                    window.location.href = 'userLandingPage.html';
+                } else {
+                    alert("Email or password is incorrect or 'Remember me' is not checked!");
+                }
+            } else {
+                form.classList.add('was-validated'); 
+            }
+        }
+
+
+        (() => {
+            'use strict'
+
+            const forms = document.querySelectorAll('.needs-validation')
+
+            Array.from(forms).forEach(form => {
+                form.addEventListener('submit', event => {
+                    if (!form.checkValidity()) {
+                        event.preventDefault()
+                        event.stopPropagation()
+                    }
+
+                    form.classList.add('was-validated')
+                }, false)
+            })
+        })()
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="Templates/bootstrap.bundle.js"></script>
+    <script src="Templates/all.min.js"></script>
+
+</body>
+
+</html>

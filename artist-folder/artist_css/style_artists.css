@@ -1,0 +1,51 @@
+
+.disco-song-con{
+    background-color: #242424;
+    height: max-content;
+    padding: 5px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: initial;
+}   
+.disco-song-con img{
+    height: 80px;
+    width: 80px;
+}
+.video-con{
+    /* border: 1px solid #2af980; */
+    width: 90%;
+    height: max-content;
+
+}
+.artist-songs{
+    border: 1px solid #2af980;
+    width: 100%;
+    height: max-content;
+}
+.song-info h5{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: initial;
+}
+.disco-album-con{
+    height: max-content;
+    padding: 5px;
+}
+.disco-album-con:hover{
+    background-color: #242424;
+
+}
+.disco-album-con img{
+    height: 200px;
+    width: 200px;
+}
+.artist-album{
+    border: 1px solid #2af980;
+    width: 100%;
+    height: max-content;
+}
+.custom-video {
+    width: 530px;
+    height: 530px; 
+    object-fit: cover;
+}

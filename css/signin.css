@@ -1,0 +1,82 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: black;
+    overflow: hidden;
+}
+
+.container-fluid {
+    
+    justify-content: center;
+    align-items: center;
+}
+
+.link-style{
+    color: white;
+}
+.link-style:hover{
+    color: #2af980;
+}
+
+.leftSide {
+    z-index: 2;
+    background-color: #000000;
+    border: 2px solid #2af980;
+    border-radius: 10px 0 0 10px;
+    display: flex; /* Flexbox layout */
+    flex-direction: column; /* Align items in a row */
+    align-items: center; /* Center items vertically */
+}
+.leftSide .texts{
+    color: white;
+}
+
+.leftSignIn {
+    display: flex;
+    flex-direction: column; /* Ensure text and button are stacked vertically */
+    align-items: flex-start; /* Align the text and button to the left */
+    color: black;
+}
+.rightSide{ 
+    z-index: 2;
+    background-color: black;
+    border-radius: 0 10px 10px 0px;
+    border: 2px  solid #2af980;
+    display: flex; /* Flexbox layout */
+    flex-direction: column; /* Align items in a row */
+    align-items: center; 
+}
+
+.form-sign{
+    height: 50px;
+    background-color: #2f323152;
+    color: white;
+    border: 1px solid white;
+    border-radius: 10px;
+}
+.form-sign:focus{
+    color: white;
+    background-color: #000000;
+    border: 1px solid #2af980;
+    box-shadow: 0 0 5px #2af980, 0 0 10px #2af980;
+}
+.form-label:focus{
+    background-color: transparent;
+}
+.outline-btn{
+    border-radius: 50px;
+    border: 2px #f9622a solid;
+    color: #f9622a;
+    padding: 14px;
+    font-weight: bold;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    position: relative;
+}
+.outline-btn:hover{
+    background-color: #f9622a;
+    color: white;
+    transform: scale(1.04); 
+    transition: background-color 0.3s ease, transform 0.3s ease; 
+}
+
+

@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>space.</title>
+    <link rel="icon" href="images/logo-head.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="Templates/bootstrap.min.css"> 
+    <link rel="stylesheet" href="Templates/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/landing_style.css">
+    <link rel="stylesheet" href="css/discover_style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    
+
+    
+  </head> 
+
+<body>
+    
+    <!-- NAVBAR -->
+    <nav id="navbar" class="navbar navbar-expand-lg align-items-center" style="color: white;">
+        <div class="container-fluid mt-4">
+            <!-- Logo Section -->
+            <a class="ms-5 brand navbar-brand d-none d-md-block fs-2" href="userLandingPage.html">
+                <b style="color: #2af980;">space<span style="color: #f9622a;">.</span></b>
+            </a>
+    
+            <!-- Navbar Toggler for Mobile View -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+    
+            <!-- Navigation Menu -->
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-center">  
+                    <li class="nav-item mx-4">
+                        <a class="nav-link fs-6" href="userLandingPage.html">Home</a>
+                    </li>
+                    <li class="nav-item mx-4 nav-item-active">
+                        <a class="nav-link fs-6" href="discover-page.html" style="color: #f9622a !important;">Discover</a>
+                    </li>
+                    <li class="nav-item mx-4">
+                        <a class="nav-link fs-6" href="shop-page.html">Shop</a>
+                    </li>
+                    <!-- Cart Iconn -->
+                    <li class="nav-item">
+                        <a href="shopping-cart-page.html">
+                        <i class="profile-icon p-2 mx-3 fa-solid fa-cart-shopping"></i>
+                    </a>
+                    </li>
+                    <!-- Profile Icon -->
+                    <li class="nav-item">
+                        <a href="profile-page.html">
+                        <i class="profile-icon p-2 mx-3 fa-solid fa-user"></i>
+                    </a>
+                    </li>
+                    
+                    <!-- Sign In Button -->
+                    <li class="nav-item">
+                        <button type="button" class="content-btn custom-btn btn btn-dark px-4 py-2 me-4" data-bs-toggle="modal" data-bs-target="#logoutModal">
+                          LOG OUT
+                        </button>
+                      </li>
+                      
+                </ul>
+            </div>
+        </div>
+    </nav>
+        <!-- Log Out Modal -->
+<div class="modal fade" id="logoutModal" tabindex="-1" aria-labelledby="logoutModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content" style="background-color: black; color: white; border: 1px solid #f9622a;">
+        <div class="modal-header">
+          <h5 class="modal-title fw-bold" id="logoutModalLabel">Leaving So Soon?</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            You’re about to step off your<b><span style="color: #2af980;"> space</span><span style="color: #f9622a;">.</span></b><br>Are you ready to leave leave the rhythm behind?
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="content-btn custom-btn btn btn-dark text-white " data-bs-dismiss="modal" style="background-color: transparent; border: #2af980 2px solid">Cancel</button>
+          <a href="index.html" class="content-btn custom-btn btn btn-dark fw-light">Log Out</a>
+        </div>
+      </div>
+    </div>
+  </div>
+    
+    
+
+<!-- BOTTOM MUSIC PLAYER -->
+<div id="player" class="fixed-bottom music-player text-white p-3">
+    <div class="ms-5 d-flex align-items-center gap-3">
+        <!-- Song Thumbnail -->
+        <img src="images/carousel-1.jpg" alt="Song Thumbnail" class="song-thumbnail ms-5" style="width: 50px; height: 50px; object-fit: cover; " >
+
+        <!-- Song Details -->
+        <div class=" player-text me-5">
+            <h5 class="mb-0" id="song-title">Break Stuff</h5>
+            <small id="song-artist">Limp Bizkit</small>
+        </div>
+
+        <audio id="music">
+            <source src="mp3/song-1.mp3" type="audio/mpeg">
+        </audio>
+
+        <div class="d-block">
+        <input type="range" value="0" id="progress">
+
+        <div class="controls d-flex justify-content-center align-items-center">
+               <div> <i class="fa-solid fa-backward"></i></div>
+               <div onclick="playPause()">
+                <i class="fa-solid fa-play" id="ctrlIcon"></i>
+            </div>
+                <div><i class="fa-solid fa-forward"></i></div>
+        </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="container-fluid">
+    <div>
+        
+        <div id="mySidebar" class="sidebar">
+            <div class="side-title d-flex flex-row align-items-center sticky-top" style="z-index: 10;" onclick="closeNav()">
+             <i class="fa-solid fa-bars openbtn ms-1 my-1 p-2" style="background-color: #262525;"></i>
+             <h5 class="mt-2 fw-bold mb-0">Menu Library</h5> 
+            </div>
+            
+
+            <div class="side-folders d-flex flex-column">
+                <div class="d-flex flex-column">
+                    <a href="liked-songs.html" class="p-0 m-2 d-flex justify-content-start align-items-center slide-folder-item text-decoration-none">
+                        <i class="fa-regular fa-heart slide-folder-btn p-2 my-1 ms-0" ></i>
+                        <h6 class="mb-0">Your Liked Songs</h6>
+        
+                    </a>
+                        <a href="userLandingPage.html" class="p-0 m-2 d-flex justify-content-start align-items-center slide-folder-item text-decoration-none">
+                        <i class="fa-regular fa-folder slide-folder-btn p-2 my-1"></i>
+                        <h6 class="mb-0 ms-2">Your Playlist</h6>
+                        </a>
+                    <a href="artist-folder/artist-sabrina.html" class="p-0 m-2 d-flex justify-content-start align-items-center slide-folder-item text-decoration-none">
+                <div  class="artist-side-btn d-flex justify-content-center align-items-center my-2 p-2"><img class="" src="images/artist-sabrina.jpg" alt=""></div>
+                <div class="d-flex flex-column mb-0 ms-2">
+                <h6 class="mb-0 text-white" >Sabrina Carpenter</h6>
+                <h6 class="fw-light" style="color: #747373;">Artist</h6>
+            </div>
+        </a>
+        <a href="artist-folder/artist-chappell.html" class="p-0 m-2 d-flex justify-content-start align-items-center slide-folder-item text-decoration-none">
+                <div  class="artist-side-btn d-flex justify-content-center align-items-center my-2 p-2"><img class="" src="images/artist-chappell.jpg" alt=""></div>
+                <div class="d-flex flex-column mb-0 ms-2">
+                <h6 class="mb-0 text-white">Chappell Roan</h6>
+                <h6 class="fw-light" style="color: #747373;">Artist</h6>
+            </div>
+        </a>
+        <a href="artist-folder/artist-tyler.html" class="p-0 m-2 d-flex justify-content-start align-items-center slide-folder-item text-decoration-none">
+                <div  class="artist-side-btn d-flex justify-content-center align-items-center my-2 p-2"><img class="" src="images/artist-tyler.jpg" alt=""></div>
+                <div class="d-flex flex-column mb-0 ms-2">
+                <h6 class="mb-0 text-white" >Tyler, the creator</h6>
+                <h6 class="fw-light" style="color: #747373;">Artist</h6>
+            </div>
+        </a>
+        <a href="artist-folder/artist-billie.html" class="p-0 m-2 d-flex justify-content-start align-items-center slide-folder-item text-decoration-none">
+                <div  class="artist-side-btn d-flex justify-content-center align-items-center my-2 p-2"><img class="" src="images/artist-billie.jpg" alt=""></div>
+                <div class="d-flex flex-column mb-0 ms-2">
+                <h6 class="mb-0 text-white" >Billie Eilish</h6>
+                <h6 style="color: #747373;">Artist</h6>
+                </div>
+                </a>
+            </div>
+            </div>
+          <script>
+          function openNav() {
+            document.getElementById("mySidebar").style.width = "250px";
+            document.getElementById("main").style.marginLeft = "250px";
+            document.getElementById("sidebar-snip").style.marginLeft = "250px"
+            // Collapse the slidebar-snip
+            document.getElementById("sidebar-snip").classList.add("collapsed");
+            document.getElementById("side-content").classList.add("collapsed");
+          }
+          
+          function closeNav() {
+            document.getElementById("mySidebar").style.width = "0";
+            document.getElementById("main").style.marginLeft= "0";
+            document.getElementById("sidebar-snip").style.marginLeft = "0px"
+              // Expand the slidebar-snip back to its original state
+            document.getElementById("sidebar-snip").classList.remove("collapsed");
+            document.getElementById("side-content").classList.remove("collapsed");
+          }
+          </script>
+    </div> 
+     
+        
+       <div id="sidebar-snip" class="sidebar-snip d-flex flex-column">
+        <div onclick="openNav()"><i class="fa-solid fa-bars openbtn ms-1 my-1 p-2"></i></div>  
+        <div id="side-content" class="d-flex flex-column">
+            <a href="liked-songs.html">
+        <i class="fa-regular fa-heart openbtn side-btn p-2 my-1" ></i>
+             </a>
+             <a href="userLandingPage.html">
+        <i class="fa-regular fa-folder openbtn side-btn p-2 my-1"></i>
+    </a>
+    <a href="artist-folder/artist-sabrina.html">
+        <div  class="artist-side-btn d-flex justify-content-center align-items-center my-2 p-2"><img class="" src="images/artist-sabrina.jpg" alt=""></div></a>
+        <a href="artist-folder/artist-chappell.html">
+        <div  class="artist-side-btn d-flex justify-content-center align-items-center my-2 p-2"><img class="" src="images/artist-chappell.jpg" alt=""></div></a>
+        <a href="artist-folder/artist-tyler.html">
+        <div  class="artist-side-btn d-flex justify-content-center align-items-center my-2 p-2"><img class="" src="images/artist-tyler.jpg" alt=""></div></a>
+        <a href="artist-folder/artist-billie.html">
+        <div  class="artist-side-btn d-flex justify-content-center align-items-center my-2 p-2"><img class="" src="images/artist-billie.jpg" alt=""></div></a>
+    </div>
+    </div>
+        <div id="main">
+              <!-- FEATURED ALBUMS -->
+            
+        <div class="container">
+            <!-- HEADER PICTURE -->
+            <div class="row d-flex position-relative">
+                <div class="col-lg-12 position-relative">
+                    <div 
+                        class="header-bg-image  top-0 start-0 w-100 h-100" 
+                        style="background-image: url('images/header-discover.png'); filter: blur(0px);
+                                height: 300px !important;">
+                    </div>
+                    
+                    </div>
+                </div>
+
+<div class="row">
+    <div class="col-lg-12">
+            <h1 class="fw-bold mb-5"><span style="font-size: 5rem; color: #f9622a;">DISCOVER</span><br>UNLOCK THE EXPERIENCE<span style="color: #f9622a;">.</span></h1>
+    </div>
+
+</div>
+<div class=" row justify-content-center">
+    <div class="col-lg-6 d-flex justify-content-center">
+        <video width="450" height="450" autoplay muted loop>
+            <source src="images/discover.mp4" type="video/mp4">
+        </video>
+
+    </div>
+    <div class="mt-5 pt-5 col-lg-6 title-intro d-flex justify-content-start">
+        <h5 class=" fw-lighter" style="text-indent: 25px;text-align: justify;">Welcome to space — your gateway to the ultimate music experience. Immerse yourself in the unique world of your favorite artists, from their latest tracks and exclusive live performances to their one-of-a-kind merchandise. Explore, discover, and get closer to the music you love — all in one place. Discover the stories behind the music, watch exclusive live videos, and connect with the soul of your favorite artists. Your journey into their creative space begins here.</h5>
+    </div>
+
+</div>
+<hr>
+
+
+<div class="mt-5 mb-5 row d-flex justify-content-center">
+    
+    <div class="col-lg-4">
+        <a href="news-folder/news-2.html"  style="text-decoration: none;">
+        <div class="card news-card p-3 text-white m-1">
+            <small>NEWS</small>
+            <h5>Billboard Music Awards 2024: A Night of Unforgettable Hits and Global Sounds</h5>
+            <img class="p-2" src="images/news-thumbnail-1.jpg" alt="">
+        </div>
+    </a>
+    </div>
+    <div class="col-lg-4">
+        <a href="news-folder/news-1.html"  style="text-decoration: none;">
+        <div class="card news-card p-3 text-white m-1">
+            <small>NEWS</small>
+            <h5>Festive Finale: Big Names Spread Holiday Cheer with New Releases to Close 2024</h5>
+            <img class="p-2" src="images/news-thumbnail-2.jpg" alt="">
+        
+        </div>
+    </a>
+    </div>
+    <div class="col-lg-4">
+        <a href="news-folder/news-3.html"  style="text-decoration: none;">
+        <div class="card news-card p-3 text-white m-1">
+            <small>NEWS</small>
+            <h5>Harmony Meets Tech: AI’s Transformative Role in 2024’s Music Scene</h5>
+            <img class="p-2" src="images/news-thumbnail-3-new.jpg" alt="">
+        </div>
+    </a>
+
+    </div>
+    
+
+</div>
+
+<div class=" row justify-content-center">
+      <div class="mt-5 pt-5 col-lg-6 title-intro d-row justify-content-center">
+        <h2 class="ms-5 fw-bold mb-5">Step into Their Space: Artist Spotlight</h2>
+        <h5 class=" fw-lighter ms-5" style="text-indent: 25px;text-align: justify;">Get ready to embark on an unforgettable journey through the worlds of your favorite artists! Next stop: their creative spaces. Each button is a gateway to exclusive content—live performances, curated playlists, and behind-the-scenes moments that bring their artistry to life. Whether you’re vibing with chart-toppers or diving into fresh discoveries, this is your chance to step into their universe. So, what are you waiting for? Choose your destination and let the music take you there!</h5>
+    </div>
+
+    <div class="mt-5 col-lg-6 d-flex justify-content-center">
+        <video class="ms-5" width="540" height="540" autoplay muted loop>
+            <source src="images/vid-intro.mp4" type="video/mp4">
+        </video>
+
+</div>
+
+<div class="artist-container container align-items-center justify-content-center mx-auto ps-5 ms-5">
+    <div class="row mb-5">
+        <div class="col-lg-4 col-md-6 mb-4">
+            <a href="artist-folder/artist-sabrina.html">
+                <div class="artist-card">
+                    <img src="images/artist-sabrina.jpg" alt="Sabrina Carpenter">
+                </div>
+            </a>
+            <div class="text-start mt-2">
+                <h5 class="card-title">Sabrina Carpenter<span style="color: #f9622a;">.</span></h5>
+                <h6 class="card-text">Artist</h6>
+            </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="col-lg-4 col-md-6 mb-4">
+            <a href="artist-folder/artist-chappell.html">
+                <div class="artist-card">
+                    <img src="images/artist-chappell.jpg" alt="Sabrina Carpenter">
+                </div>
+            </a>
+            <div class="text-start mt-2">
+                <h5 class="card-title">Chappell Roan<span style="color: #f9622a;">.</span></h5>
+                <h6 class="card-text">Artist</h6>
+            </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="col-lg-4 col-md-6 mb-4">
+            <a href="artist-folder/artist-tyler.html">
+                <div class="artist-card">
+                    <img src="images/artist-tyler.jpg" alt="Sabrina Carpenter">
+                </div>
+            </a>
+            <div class="text-start mt-2">
+                <h5 class="card-title">Tyler, The Creator<span style="color: #f9622a;">.</span></h5>
+                <h6 class="card-text">Artist</h6>
+            </div>
+        </div>
+    </div>
+
+        <div class="row text-center mt-4">
+        <!-- Card 4 -->
+        <div class="col-lg-4 col-md-6 mb-4">
+            <a href="artist-folder/artist-billie.html">
+                <div class="artist-card">
+                    <img src="images/artist-billie.jpg" alt="Sabrina Carpenter">
+                </div>
+            </a>
+        <div class="text-start mt-2">
+            <h5 class="card-title">Billie Eilish<span style="color: #f9622a;">.</span></h5>
+            <h6 class="card-text">Artist</h6>
+        </div>
+    </div>
+    <!-- Card 2 -->
+    <div class="col-lg-4 col-md-6 mb-4">
+        <div class="artist-card card text-white">
+            <img src="images/artist-bruno.jpg" class="card-img" alt="Album 2">
+            <div class="card-img-overlay d-flex flex-column justify-content-end align-items-start">
+            </div>
+        </div>
+        <div class="text-start mt-2">
+            <h5 class="card-title">Bruno Mars<span style="color: #f9622a;">.</span></h5>
+            <h6 class="card-text">Artist</h6>
+        </div>
+    </div>
+    <!-- Card 3 -->
+
+    <div class="col-lg-4 col-md-6 mb-4">
+        <div class="artist-card  card text-white">
+            <img src="images/artist-cup.jpg" class="card-img" alt="Album 1">
+            <div class="card-img-overlay d-flex flex-column justify-content-end align-items-start">
+            </div>
+        </div>
+        <div class="text-start mt-2">
+            <h5 class="card-title">Cup of Joe<span style="color: #f9622a;">.</span></h5>
+            <h6 class="card-text">Artist</h6>
+        </div>
+    </div>
+
+
+        
+    </div>
+</div>
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+            <!-- FOOTER -->
+            <footer>
+                <div class="container-footer">
+                    <footer class="d-flex flex-wrap justify-content-between align-items-center m-4 px-5 py-4 mb-5 border-top">
+                        <div class="col-md-4 text-center text-md-start mx-auto mx-md-0">
+        
+                            <ul class="fa-sm-l list-unstyled d-flex justify-content-center justify-content-md-start">
+                                <li class="ms-3" ><a class="text-body-secondary" href="https://www.facebook.com" target="_blank"><i class="fa-2xl fa-brands fa-facebook"></i></a></li>
+                                <li class="ms-3"><a class="text-body-secondary" href="https://www.instagram.com" target="_blank"><i class="fa-2xl fa-brands fa-instagram"></i></a></li>
+                                <li class="ms-3"><a class="text-body-secondary" href="https://www.twitter.com" target="_blank"><i  class="fa-2xl fa-brands fa-x-twitter"></i></a></li>
+                                <li class="ms-3"><a class="text-body-secondary" href="https://www.threads.net" target="_blank"><i class="fa-brands fa-threads fa-2xl"></i></a></li>
+                            </ul>
+                            <p><i class="fa-solid fa-location-pin"></i> Batangas State University JPLPC <br> <i class="fa-solid fa-envelope"></i> Space@gmail.com | +63-949-563-0130</p>
+                        </div>
+        
+        
+                    
+                        <div class="col-md-4 mb-0 text-body-secondary mx-auto mx-md-0 text-center text-md-end">
+                            <a style="text-decoration: none; color: #353231;" href="#" data-bs-toggle="modal" data-bs-target="#PrivacyPolicy">Privacy Policy |</a>
+                            <a style="text-decoration: none; color: #353231;" href="#" data-bs-toggle="modal" data-bs-target="#TermsService">Terms of Service |</a>
+                            <a style="text-decoration: none; color: #353231;" href="#" data-bs-toggle="modal" data-bs-target="#FAQs">FAQs</a>
+                            <p>© 2024, space. All Rights Reserved. <br>Site for WebDev Final Project</p>
+        
+                        </div>
+                    </footer>
+                </div>
+            </footer>
+
+</div>
+
+</div>
+
+
+
+    <!-- SCROLLED NAVBAR -->
+    <script>
+        window.addEventListener("scroll", function () {
+            const navbar = document.getElementById("navbar");
+            const player = document.getElementById("player");
+            if (window.scrollY > 20) { 
+                navbar.classList.add("scrolled");
+                player.classList.add("scrolled")
+                
+
+            } else {
+                navbar.style.backgroundColor = "transparent";
+                navbar.style.color = "";
+                navbar.classList.remove("scrolled");
+                player.classList.remove("scrolled")
+            }
+        });
+    </script>
+
+    <!-- MUSIC PLAYER CONTROLS -->
+<script>
+    let progress = document.getElementById("progress");
+    let music = document.getElementById("music");
+    let ctrlIcon = document.getElementById("ctrlIcon");
+
+    music.onloadedmetadata = function(){
+        progress.max = music.duration;
+        progress.value = music.currentTime;
+    }
+
+
+    function playPause() {
+    const ctrlIcon = document.getElementById("ctrlIcon"); 
+    if (ctrlIcon.classList.contains("fa-pause")) {
+        music.pause(); 
+        ctrlIcon.classList.remove("fa-pause");
+        ctrlIcon.classList.add("fa-play");
+    } else {
+        music.play();
+        ctrlIcon.classList.add("fa-pause");
+        ctrlIcon.classList.remove("fa-play");
+    }
+}
+
+
+    if(music.play()){
+        setInterval(()=>{
+            progress.value = music.currentTime;
+        },500);
+    }
+
+    progress.onchange = function(){
+        music.play();
+        music.currentTime = progress.value;
+        ctrlIcon.classList.add("fa-pause");
+        ctrlIcon.classList.remove("fa-play");
+    }
+
+
+ </script>
+
+<!-- LIKE SONGS -->
+
+
+
+
+<script>
+    // Function to update the heart icon based on whether the song is liked
+    function updateHeartIcon(songTitle, songImage) {
+        const heart = document.getElementById('heart-btn-id');
+        const likedSongs = JSON.parse(localStorage.getItem('likedSongs')) || [];
+        const isLiked = likedSongs.some(s => s.title === songTitle && s.image === songImage);
+        
+        if (isLiked) {
+            heart.classList.remove('fa-regular');
+            heart.classList.add('fa-solid');
+        } else {
+            heart.classList.remove('fa-solid');
+            heart.classList.add('fa-regular');
+        }
+    }
+    
+    // Function to add/remove songs to/from liked list
+    function addToLikedSongs(songTitle, songImage, songStatus) {
+        const song = {
+            title: songTitle,
+            image: songImage,
+            stat: songStatus
+        };
+    
+        const heart = event.target.closest('.like-song-btn-icon');
+    
+        let likedSongs = JSON.parse(localStorage.getItem('likedSongs')) || [];
+    
+        if (!likedSongs.some(s => s.title === song.title && s.image === song.image && s.stat === song.stat)) {
+            likedSongs.push(song);
+            localStorage.setItem('likedSongs', JSON.stringify(likedSongs));
+    
+            heart.classList.remove('fa-regular');
+            heart.classList.add('fa-solid');
+        } else {
+            likedSongs = likedSongs.filter(s => s.title !== song.title || s.image !== song.image || s.stat !== song.stat);
+            localStorage.setItem('likedSongs', JSON.stringify(likedSongs));
+    
+            heart.classList.remove('fa-solid');
+            heart.classList.add('fa-regular');
+        }
+    }
+    
+    // Call this function when the page loads to set the correct icon state
+    window.onload = function() {
+        // Get all heart icons
+        const heartIcons = document.querySelectorAll('.like-song-btn-icon');
+        heartIcons.forEach(heart => {
+            const songTitle = heart.getAttribute('data-song-title');
+            const songImage = heart.getAttribute('data-song-image');
+            updateHeartIcon(songTitle, songImage);
+        });
+    };
+    </script>
+    <script>
+        // Retrieve liked songs from local storage
+        let likedSongs = JSON.parse(localStorage.getItem('likedSongs')) || [];
+    
+        // Get the container where the songs will be displayed
+        const likedSongsList = document.getElementById('heart-btn-id');
+    
+        // Loop through each liked song and display it
+        likedSongs.forEach(song => {
+            const songCard = `
+                <h1>LIKED</h1><i class="${song.stat}" style="background-color: pink; height:100px; width:100px;"></i>
+            `;
+        });
+    </script>
+
+
+
+
+
+
+
+    <!-- <script>localStorage.clear()</script> -->
+    
+
+
+        
+    
+   
+    
+     
+      
+      
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="Templates/bootstrap.bundle.js"></script>
+    <script src="Templates/all.min.js"></script>
+</body>
+</html>

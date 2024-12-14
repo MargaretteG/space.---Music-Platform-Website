@@ -1,0 +1,37 @@
+ /* DISCOVER PAGE NEWS CARD */
+ .news-card{
+    cursor: pointer;
+    height: 300px;
+    border-radius: 0;
+    border: 1px solid #c823e2;
+    /* border-width: 0px 2px 0px 0px; */
+    background-color: #151414;
+
+  }
+  .news-card small{
+    color: #4f6458;
+  }
+  .news-card img{
+    object-fit: cover;
+  }
+  .news-card h5{
+    color: white;
+  }
+  .news-card:hover h5{
+    color: #2af980;
+  }
+  .news-card:hover{
+    background-color: #2c2a2a;
+    border-color: #2af980;
+  }
+.vid-snip{
+    position: relative;
+    overflow: hidden;
+    height: 500px;
+    width: fit-content;
+}
+.vid-snip video{
+    object-fit: cover;
+    height: 500px;
+    width: max-content;
+}
