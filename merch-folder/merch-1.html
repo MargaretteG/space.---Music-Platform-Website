@@ -107,6 +107,23 @@
         </div>
     </div>
 </div>
+<!-- Buy Now Modal -->
+<div class="modal fade" id="buyNowModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content" style="background-color: black; color: white; border: 1px solid #f9622a;">
+            <div class="modal-header">
+                <h5 class="modal-title fw-bold" id="addToCartModalLabel">Wanting to Buy this Merch?</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <span style="color: #2af980;"></span> Check your items in your shopping cart to buy this product.
+            </div>
+            <div class="modal-footer">
+                <a href="../shopping-cart-page.html" class="content-btn custom-btn btn btn-dark text-white btn-buy-now" style="background-color: transparent; border: #2af980 2px solid">Proceed to My Cart</a>
+            </div>
+        </div>
+    </div>
+</div>
     
 
 <!-- BOTTOM MUSIC PLAYER -->
@@ -349,10 +366,10 @@
     <div class="row mb-5">
         <div class="d-flex justify-content-end gap-3">
         <div class="btn btn-outline-light btn-shop px-5 py-3 btn-add-cart">
-            
             <h6 class="mb-0 text-center fw-bold"> ADD TO CART <i class=" fa-solid fa-cart-shopping"></i></h6>
         </div>
-        <div class="btn btn-outline-light btn-shop px-5 py-3" style="background-color: #c22bd9;">
+
+        <div class="btn btn-outline-light btn-shop px-5 py-3" style="background-color: #c22bd9;" data-bs-toggle="modal" data-bs-target="#buyNowModal">
             <h6 class="fw-bold">BUY NOW <i class="fa-solid fa-money-bill-1-wave"></i></h6>
         </div>
     </div>
@@ -511,13 +528,16 @@
     addToCartModal.show(); 
 }
 
-document.querySelector('.btn-add-cart').addEventListener('click', () => {
-    const image = "images/merch-1.jpg"; 
-    const title = "Short n' Sweet Blue Sweater";
-    const price = "5,000"; 
-    const shop = "Sabrina Carpenter";
-    addToCart(image, title, price, shop);
+document.querySelectorAll('.btn-add-cart, .btn-buy-now').forEach(button => {
+    button.addEventListener('click', () => {
+        const image = "images/merch-1.jpg"; 
+        const title = "Short n' Sweet Blue Sweater";
+        const price = "5,000"; 
+        const shop = "Sabrina Carpenter";
+        addToCart(image, title, price, shop);
+    });
 });
+
 
  </script>
 
