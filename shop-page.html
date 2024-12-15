@@ -106,31 +106,34 @@
     
 
 <!-- BOTTOM MUSIC PLAYER -->
+<!-- BOTTOM MUSIC PLAYER -->
 <div id="player" class="fixed-bottom music-player text-white p-3">
     <div class="ms-5 d-flex align-items-center gap-3">
         <!-- Song Thumbnail -->
-        <img src="images/carousel-1.jpg" alt="Song Thumbnail" class="song-thumbnail ms-5" style="width: 50px; height: 50px; object-fit: cover; " >
+        <img src="images/carousel-1.jpg" alt="Song Thumbnail" class="song-thumbnail ms-5" style="width: 50px; height: 50px; object-fit: cover;">
 
         <!-- Song Details -->
-        <div class=" player-text me-5">
+        <div class="player-text me-5">
             <h5 class="mb-0" id="song-title">Break Stuff</h5>
             <small id="song-artist">Limp Bizkit</small>
         </div>
 
-        <!-- <audio id="music">
-            <source src="mp3/song-1.mp3" type="audio/mpeg">
-        </audio> -->
-
+        <!-- Audio Progress and Duration -->
         <div class="d-block">
-        <input type="range" value="0" id="progress">
+            <input type="range" id="progress" value="0">
+            <div class="d-flex justify-content-between">
+                <small id="current-time">0:00</small>
+                <small id="total-duration">0:00</small>
+            </div>
+        </div>
 
-        <div class="controls d-flex justify-content-center align-items-center">
-               <div> <i class="fa-solid fa-backward"></i></div>
-               <div onclick="playPause()">
+        <!-- Play/Pause Controls -->
+        <div class="controls d-flex justify-content-center align-items-center gap-2">
+            <div><i class="fa-solid fa-backward"></i></div>
+            <div onclick="playPause()">
                 <i class="fa-solid fa-play" id="ctrlIcon"></i>
             </div>
-                <div><i class="fa-solid fa-forward"></i></div>
-        </div>
+            <div><i class="fa-solid fa-forward"></i></div>
         </div>
     </div>
 </div>
@@ -406,7 +409,24 @@
 
 
 
+    <!-- SCROLLED NAVBAR -->
+    <script>
+        window.addEventListener("scroll", function () {
+            const navbar = document.getElementById("navbar");
+            const player = document.getElementById("player");
+            if (window.scrollY > 20) { 
+                navbar.classList.add("scrolled");
+                player.classList.add("scrolled")
+                
 
+            } else {
+                navbar.style.backgroundColor = "transparent";
+                navbar.style.color = "";
+                navbar.classList.remove("scrolled");
+                player.classList.remove("scrolled")
+            }
+        });
+    </script>
 
 
 

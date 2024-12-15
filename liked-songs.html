@@ -428,52 +428,7 @@
         });
     </script>
 
-<!-- PLAY SONG -->
-    <script>
-    document.addEventListener("DOMContentLoaded", () => {
-        const buttons = document.querySelectorAll(".play-pause-btn");
-        let currentAudio = null; // Track the currently playing audio
-    
-        buttons.forEach(button => {
-            button.addEventListener("click", () => {
-                const audioSrc = button.getAttribute("data-audio");
-    
-                // Check if there's already an audio element
-                if (!currentAudio) {
-                    currentAudio = new Audio(audioSrc); // Create a new audio object
-                }
-    
-                // If the same button is clicked, toggle play/pause
-                if (currentAudio.src.includes(audioSrc)) {
-                    if (currentAudio.paused) {
-                        currentAudio.play();
-                        button.innerHTML = '<i class="fas fa-pause"></i>';
-                    } else {
-                        currentAudio.pause();
-                        button.innerHTML = '<i class="fas fa-play"></i>';
-                    }
-                } else {
-                    // If a different button is clicked, stop the previous audio and play the new one
-                    currentAudio.pause();
-                    currentAudio = new Audio(audioSrc);
-                    currentAudio.play();
-    
-                    // Reset all buttons to "play" state
-                    buttons.forEach(btn => btn.innerHTML = '<i class="fas fa-play"></i>');
-    
-                    // Change the clicked button to "pause"
-                    button.innerHTML = '<i class="fas fa-pause"></i>';
-                }
-    
-                // Add an event listener to reset the button when the audio ends
-                currentAudio.addEventListener("ended", () => {
-                    button.innerHTML = '<i class="fas fa-play"></i>';
-                    currentAudio = null; // Reset currentAudio
-                });
-            });
-        });
-    });
-    </script>
+
     <script>
     function updateHeartIcon(songTitle, songImage) {
         const heartIcons = document.querySelectorAll('.like-song-btn-icon');
