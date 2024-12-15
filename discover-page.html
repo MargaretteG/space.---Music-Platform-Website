@@ -16,6 +16,25 @@
 
     
   </head> 
+  <style>
+    #mySidebar,
+#sidebar-snip {
+    display: block;
+}
+@media (max-width: 768px) {
+    #mySidebar,
+    #sidebar-snip {
+        display: none !important;
+    }
+    .music-player{
+            display: none;
+        }
+    body{
+        padding-left: 0px;
+    }
+}
+
+  </style>
 
 <body>
     
@@ -101,9 +120,9 @@
             <small id="song-artist">Limp Bizkit</small>
         </div>
 
-        <audio id="music">
-            <source src="mp3/song-1.mp3" type="audio/mpeg">
-        </audio>
+        <!-- <audio id="music">
+            <source src="mp3/song-1.mp3" ty pe="audio/mpeg">
+        </audio> -->
 
         <div class="d-block">
         <input type="range" value="0" id="progress">
@@ -231,7 +250,7 @@
 
 <div class="row">
     <div class="col-lg-12">
-            <h1 class="fw-bold mb-5"><span style="font-size: 5rem; color: #f9622a;">DISCOVER</span><br>UNLOCK THE EXPERIENCE<span style="color: #f9622a;">.</span></h1>
+            <h1 class="fw-bold mb-5"><span style="color: #f9622a;" class=" fw-bold display-2 ms-lg-3 ms-1">DISCOVER</span><br>UNLOCK THE EXPERIENCE<span style="color: #f9622a;">.</span></h1>
     </div>
 
 </div>

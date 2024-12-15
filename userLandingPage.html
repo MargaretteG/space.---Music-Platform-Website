@@ -12,10 +12,27 @@
     <link rel="stylesheet" href="css/landing_style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-    
-
-    
   </head> 
+
+  <style>
+    #mySidebar,
+#sidebar-snip {
+    display: block;
+}
+@media (max-width: 768px) {
+    #mySidebar,
+    #sidebar-snip {
+        display: none !important;
+    }
+    .music-player{
+            display: none;
+        }
+    body{
+        padding-left: 0px;
+    }
+}
+
+  </style>
 
 <body>
 
@@ -104,9 +121,9 @@
             <small id="song-artist">Limp Bizkit</small>
         </div>
 
-        <audio id="music">
+        <!-- <audio id="music">
             <source src="mp3/song-1.mp3" type="audio/mpeg">
-        </audio>
+        </audio> -->
 
         <div class="d-block">
         <input type="range" value="0" id="progress">
@@ -329,28 +346,28 @@
                 <div class="row">
                 <div class="d-flex align-items-center justify-content-between">
                     
-                     <div class="col-lg-5 d-flex justify-content-start align-items-center ms-3"> 
-                        <h6 class="me-4 mb-0">1</h6>
-                    <img src="images/apt-song-1.jpg" alt="Song Thumbnail" class="song-thumbnail me-3" />
+                     <div class="col-lg-5 col-7 d-flex justify-content-start align-items-center ms-lg-3 ms-0"> 
+                        <h6 class="me-lg-4 me-2 mb-0">1</h6>
+                    <img src="images/apt-song-1.jpg" alt="Song Thumbnail" class="song-thumbnail me-lg-3 me-2" />
                     
                     <div class="d-flex flex-column mb-0 ms-2">
                         <h5 class="mb-0" >APT,</h5>
-                        <small style="color: #747373;">ROSÉ, Bruno Mars</small>
+                        <small style="color: #747373;" class=" d-lg-block d-none">ROSÉ, Bruno Mars</small>
                     </div>
                     </div>
-                    <div class="col-lg-3 justify-content-start">
+                    <div class="col-lg-3 justify-content-start  d-lg-block d-none">
                         <h6 class="align-items-center mb-0"><i class="fa-solid fa-music"></i> 530,000</h6>
                     </div>
-                    <div class="col-lg-2 justify-content-start">
+                    <div class="col-lg-2 justify-content-start  d-lg-block d-none">
                         <h6 class="align-items-center mb-0">2:49</h6>
                     </div>
                     <!-- Play/Pause Button -->
-                    <div class="col-lg-1 justify-content-center">
+                    <div class="col-lg-1 col-2 justify-content-center">
                     <button class="btn btn-outline-light play-pause-btn" data-audio="mp3/song-1.mp3">
                         <i class="fas fa-play"></i>
                     </button>
                     </div>
-                    <div class="col-lg-1 justify-content-center">
+                    <div class="col-lg-1 col-2 justify-content-center">
                         <button class="heart-btn btn like-song-btn d-flex justify-content-center align-items-center" 
                                 onclick="addToLikedSongs('APT.', 'images/apt-song-1.jpg', 'ROSÉ, Bruno Mars')">
                             <i id="heart-btn-id" class="p-2 like-song-btn-icon" 
@@ -369,28 +386,28 @@
                 <div class="row">
                 <div class="d-flex align-items-center justify-content-between">
                     
-                     <div class="col-lg-5 d-flex justify-content-start align-items-center ms-3"> 
-                        <h6 class="me-4 mb-0">2</h6>
-                    <img src="images/song-2-die-w-smile.jpg" alt="Song Thumbnail" class="song-thumbnail me-3" />
+                     <div class="col-lg-5 col-7 d-flex justify-content-start align-items-center ms-lg-3 ms-0"> 
+                        <h6 class="me-lg-4 me-2 mb-0">2</h6>
+                    <img src="images/song-2-die-w-smile.jpg" alt="Song Thumbnail" class="song-thumbnail me-lg-3 m-0" />
                     
                     <div class="d-flex flex-column mb-0 ms-2">
                         <h5 class="mb-0" >Die With A Smile</h5>
-                        <small style="color: #747373;">Lady Gaga, Bruno Mars</small>
+                        <small style="color: #747373;" class=" d-lg-block d-none">Lady Gaga, Bruno Mars</small>
                     </div>
                     </div>
-                    <div class="col-lg-3 justify-content-start">
+                    <div class="col-lg-3 justify-content-start  d-lg-block d-none">
                         <h6 class="align-items-center mb-0"><i class="fa-solid fa-music"></i> 530,000</h6>
                     </div>
-                    <div class="col-lg-2 justify-content-start">
+                    <div class="col-lg-2 justify-content-start  d-lg-block d-none">
                         <h6 class="align-items-center mb-0">2:49</h6>
                     </div>
                     <!-- Play/Pause Button -->
-                    <div class="col-lg-1 justify-content-center">
+                    <div class="col-lg-1 col-2 justify-content-center">
                     <button class="btn btn-outline-light play-pause-btn" data-audio="mp3/song-1.mp3">
                         <i class="fas fa-play"></i>
                     </button>
                     </div>
-                    <div class="col-lg-1 justify-content-center">
+                    <div class="col-lg-1 col-2 justify-content-center">
                         <button class="heart-btn btn like-song-btn d-flex justify-content-center align-items-center" 
                                 onclick="addToLikedSongs('Die With A Smile', 'images/song-2-die-w-smile.jpg', 'Lady Gaga, Bruno Mars')">
                             <i id="heart-btn-id" class="like-song-btn-icon p-2" 
@@ -410,28 +427,28 @@
                 <div class="row">
                 <div class="d-flex align-items-center justify-content-between">
                     
-                     <div class="col-lg-5 d-flex justify-content-start align-items-center ms-3"> 
-                        <h6 class="me-4 mb-0">3</h6>
-                    <img src="images/song-3-luther.jpg" alt="Song Thumbnail" class="song-thumbnail me-3" />
+                     <div class="col-lg-5 col-7 d-flex justify-content-start align-items-center ms-lg-3 ms-0"> 
+                        <h6 class="me-lg-4 me-2 mb-0">3</h6>
+                    <img src="images/song-3-luther.jpg" alt="Song Thumbnail" class="song-thumbnail me-lg-3 me-2" />
                     
                     <div class="d-flex flex-column mb-0 ms-2">
                         <h5 class="mb-0" >luther(with sza)</h5>
-                        <small style="color: #747373;">Kendrick Lamar, SZA</small>
+                        <small style="color: #747373;" class=" d-lg-block d-none">Kendrick Lamar, SZA</small>
                     </div>
                     </div>
-                    <div class="col-lg-3 justify-content-start">
+                    <div class="col-lg-3 justify-content-start  d-lg-block d-none">
                         <h6 class="align-items-center mb-0"><i class="fa-solid fa-music"></i> 530,000</h6>
                     </div>
-                    <div class="col-lg-2 justify-content-start">
+                    <div class="col-lg-2 justify-content-start  d-lg-block d-none">
                         <h6 class="align-items-center mb-0">2:49</h6>
                     </div>
                     <!-- Play/Pause Button -->
-                    <div class="col-lg-1 justify-content-center">
+                    <div class="col-lg-1 col-2 justify-content-center">
                     <button class="btn btn-outline-light play-pause-btn" data-audio="mp3/song-1.mp3">
                         <i class="fas fa-play"></i>
                     </button>
                     </div>
-                    <div class="col-lg-1 justify-content-center">
+                    <div class="col-lg-1 col-2 justify-content-center">
                         <button class="heart-btn btn like-song-btn d-flex justify-content-center align-items-center" 
                                 onclick="addToLikedSongs('luther &#40;with sza&#41;', 'images/song-3-luther.jpg', 'Kendrick Lamar, SZA')">
                             <i id="heart-btn-id" class="like-song-btn-icon p-2" 
@@ -451,28 +468,28 @@
                 <div class="row">
                 <div class="d-flex align-items-center justify-content-between">
                     
-                     <div class="col-lg-5 d-flex justify-content-start align-items-center ms-3"> 
-                        <h6 class="me-4 mb-0">4</h6>
-                    <img src="images/song-4-birds.jpg" alt="Song Thumbnail" class="song-thumbnail me-3" />
+                     <div class="col-lg-5 col-7 d-flex justify-content-start align-items-center ms-lg-3 ms-0"> 
+                        <h6 class="me-lg-4 me-2 mb-0">4</h6>
+                    <img src="images/song-4-birds.jpg" alt="Song Thumbnail" class="song-thumbnail me-lg-3 me-2" />
                     
-                    <div class="d-flex flex-column mb-0 ms-2">
+                    <div class="d-flex flex-column mb-0 ms-lg-2 ms-1 ">
                         <h5 class="mb-0" >BIRDS OF A FEATHER</h5>
-                        <small style="color: #747373;">Billie Eilish</small>
+                        <small style="color: #747373;" class=" d-lg-block d-none">Billie Eilish</small>
                     </div>
                     </div>
-                    <div class="col-lg-3 justify-content-start">
+                    <div class="col-lg-3 justify-content-start  d-lg-block d-none">
                         <h6 class="align-items-center mb-0"><i class="fa-solid fa-music"></i> 530,000</h6>
                     </div>
-                    <div class="col-lg-2 justify-content-start">
+                    <div class="col-lg-2 justify-content-start  d-lg-block d-none">
                         <h6 class="align-items-center mb-0">2:49</h6>
                     </div>
                     <!-- Play/Pause Button -->
-                    <div class="col-lg-1 justify-content-center">
+                    <div class="col-lg-1 col-2 justify-content-center">
                     <button class="btn btn-outline-light play-pause-btn" data-audio="mp3/song-1.mp3">
                         <i class="fas fa-play"></i>
                     </button>
                     </div>
-                    <div class="col-lg-1 justify-content-center">
+                    <div class="col-lg-1 col-2 justify-content-center">
                         <button class="heart-btn btn like-song-btn d-flex justify-content-center align-items-center" 
                                 onclick="addToLikedSongs('BIRDS OF A FEATHER', 'images/song-4-birds.jpg', 'Billie Eilish')">
                             <i id="heart-btn-id" class="like-song-btn-icon p-2" 
@@ -492,28 +509,28 @@
                 <div class="row">
                 <div class="d-flex align-items-center justify-content-between">
                     
-                     <div class="col-lg-5 d-flex justify-content-start align-items-center ms-3"> 
-                        <h6 class="me-4 mb-0">5</h6>
-                    <img src="images/song-5-break.jpg" alt="Song Thumbnail" class="song-thumbnail me-3" />
+                     <div class="col-lg-5 col-7 d-flex justify-content-start align-items-center ms-lg-3 ms-0"> 
+                        <h6 class="me-lg-4 me-2 mb-0">5</h6>
+                    <img src="images/song-5-break.jpg" alt="Song Thumbnail" class="song-thumbnail me-lg-3 me-2" />
                     
                     <div class="d-flex flex-column mb-0 ms-2">
                         <h5 class="mb-0" >Break Stuff</h5>
-                        <small style="color: #747373;">Limp Bizkit</small>
+                        <small style="color: #747373;" class="d-lg-block d-none">Limp Bizkit</small>
                     </div>
                     </div>
-                    <div class="col-lg-3 justify-content-start">
+                    <div class="col-lg-3 justify-content-start  d-lg-block d-none">
                         <h6 class="align-items-center mb-0"><i class="fa-solid fa-music"></i> 530,000</h6>
                     </div>
-                    <div class="col-lg-2 justify-content-start">
+                    <div class="col-lg-2 justify-content-start  d-lg-block d-none">
                         <h6 class="align-items-center mb-0">2:49</h6>
                     </div>
                     <!-- Play/Pause Button -->
-                    <div class="col-lg-1 justify-content-center">
+                    <div class="col-lg-1 col-2 justify-content-center">
                     <button class="btn btn-outline-light play-pause-btn" data-audio="mp3/song-1.mp3">
                         <i class="fas fa-play"></i>
                     </button>
                     </div>
-                    <div class="col-lg-1 justify-content-center">
+                    <div class="col-lg-1 col-2 justify-content-center">
                         <button class="heart-btn btn like-song-btn d-flex justify-content-center align-items-center" 
                                 onclick="addToLikedSongs('Break Stuff', 'images/song-5-break.jpg', 'Limp Bizkit')">
                             <i id="heart-btn-id" class="like-song-btn-icon p-2" 

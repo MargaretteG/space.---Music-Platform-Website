@@ -335,7 +335,22 @@ body {
     font-size: 1.2rem; 
     color: white;
 }
-
+#mySidebar,
+#sidebar-snip {
+    display: block;
+}
+@media (max-width: 768px) {
+    #mySidebar,
+    #sidebar-snip {
+        display: none !important;
+    }
+    .music-player{
+            display: none;
+        }
+    body{
+        padding-left: 0px;
+    }
+}
 
 
 
