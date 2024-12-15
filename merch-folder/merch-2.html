@@ -375,10 +375,9 @@
     <hr>
     <div class="row mb-5">
         <div class="d-flex justify-content-end gap-3">
-        <div class="btn btn-outline-light btn-shop px-5 py-3 btn-add-cart">
-            
-            <h6 class="mb-0 text-center fw-bold"> ADD TO CART <i class=" fa-solid fa-cart-shopping"></i></h6>
-        </div>
+            <div class="btn btn-outline-light btn-shop px-5 py-3 btn-add-cart">
+                <h6 class="mb-0 text-center fw-bold"> ADD TO CART <i class=" fa-solid fa-cart-shopping"></i></h6>
+            </div> 
         <div class="btn btn-outline-light btn-shop px-5 py-3" style="background-color: #c22bd9;"  data-bs-toggle="modal" data-bs-target="#buyNowModal">
             <h6 class="fw-bold">BUY NOW <i class="fa-solid fa-money-bill-1-wave"></i></h6>
         </div>
@@ -539,12 +538,14 @@
     addToCartModal.show(); 
 }
 
-document.querySelector('.btn-add-cart, .btn-buy-now').addEventListener('click', () => {
-    const image = "images/merch-2.png"; 
-    const title = "IGOR Vinyl";
-    const price = "5,000"; 
-    const shop = "Tyler, The Creator";
-    addToCart(image, title, price, shop);
+document.querySelectorAll('.btn-add-cart, .btn-buy-now').forEach(button => {
+    button.addEventListener('click', () => {
+        const image = "images/merch-2.png"; 
+        const title = "IGOR Vinyl";
+        const price = "5,000"; 
+        const shop = "Tyler, the Creator";
+        addToCart(image, title, price, shop);
+    });
 });
 
  </script>

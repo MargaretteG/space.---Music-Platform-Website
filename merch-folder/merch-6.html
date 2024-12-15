@@ -547,12 +547,15 @@
     addToCartModal.show(); 
 }
 
-document.querySelector('.btn-add-cart, .btn-buy-now').addEventListener('click', () => {
-    const image = "images/merch-6.png"; 
-    const title = "Call Me If You Get Lost Hoodie";
-    const price = "5,000"; 
-    const shop = "Tyler, The Creator";
-    addToCart(image, title, price, shop);
+
+document.querySelectorAll('.btn-add-cart, .btn-buy-now').forEach(button => {
+    button.addEventListener('click', () => {
+        const image = "images/merch-6.png"; 
+        const title = "Call Me If You Get Lost Hoodie";
+        const price = "5,000"; 
+        const shop = "Tyler, the Creator";
+        addToCart(image, title, price, shop);
+    });
 });
 
  </script>

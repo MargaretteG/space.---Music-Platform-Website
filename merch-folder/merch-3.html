@@ -538,12 +538,14 @@
     addToCartModal.show(); 
 }
 
-document.querySelector('.btn-add-cart, .btn-buy-now').addEventListener('click', () => {
-    const image = "images/merch-3.png"; 
-    const title = "BE LUNCHBOX SET";
-    const price = "5,000"; 
-    const shop = "Billie Eilish";
-    addToCart(image, title, price, shop);
+document.querySelectorAll('.btn-add-cart, .btn-buy-now').forEach(button => {
+    button.addEventListener('click', () => {
+        const image = "images/merch-3.png"; 
+        const title = "BE LUNCHBOX SET";
+        const price = "5,000"; 
+        const shop = "Billie Eilish";
+        addToCart(image, title, price, shop);
+    });
 });
 
  </script>

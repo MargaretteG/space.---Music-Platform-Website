@@ -539,14 +539,16 @@
     addToCartModal.show(); 
 }
 
-document.querySelector('.btn-add-cart, .btn-buy-now').addEventListener('click', () => {
-    const image = "images/merch-5.png"; 
-    const title = "Espresso Vinyl";
-    const price = "5,000"; 
-    const shop = "Sabrina Carpenter";
-    addToCart(image, title, price, shop);
-});
 
+document.querySelectorAll('.btn-add-cart, .btn-buy-now').forEach(button => {
+    button.addEventListener('click', () => {
+        const image = "images/merch-5.png"; 
+        const title = "Espresso Vinyl";
+        const price = "5,000"; 
+        const shop = "Sabrina Carpenter";
+        addToCart(image, title, price, shop);
+    });
+});
  </script>
      
     

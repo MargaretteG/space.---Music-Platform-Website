@@ -547,12 +547,14 @@
     addToCartModal.show(); 
 }
 
-document.querySelector('.btn-add-cart, .btn-buy-now').addEventListener('click', () => {
-    const image = "images/merch-4.png"; 
-    const title = "Chappell Roan Tour Shirt";
-    const price = "5,000"; 
-    const shop = "Chappell Roan";
-    addToCart(image, title, price, shop);
+document.querySelectorAll('.btn-add-cart, .btn-buy-now').forEach(button => {
+    button.addEventListener('click', () => {
+        const image = "images/merch-4.png"; 
+        const title = "Chappell Roan Tour Shirt";
+        const price = "5,000"; 
+        const shop = "Chappell Roan";
+        addToCart(image, title, price, shop);
+    });
 });
 
  </script>
